@@ -1,0 +1,29 @@
+From satoshi@vistomail.com Thu Jan 8 20:54:55 2009
+Return-Path: <satoshi@vistomail.com>
+X-Original-To: hal@finney.org
+Delivered-To: hal@finney.org
+Received: from mail.anonymousspeech.com (anonymous speech.com [124.217.253.421)
+        by finney.org (Postfix) with ESMTP id 467AA14F6E1
+        for <ha18finney.org>; Thu, 8 Jan 2009 20:54:53 -0800 (PST)
+Received: from server123 ([124.217.253.421) by anonymousspeech.com with MailEnable ESMTP; Fri, 09 Jan 2009 13:32:28 +0800
+MIME-Version: 1.0
+Date: Fri, 09 Jan 2009 13:21:04 +0800
+X-Mailer: Chilkat Software Inc (http://www.chilkatsoft.com)
+X-Priority: 3 (Normal)
+Subject: Bitcoin v0.1
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
+From: "Satoshi Nakamoto" <satoshi@vistomail.com>
+Reply-To: satoshi@vistomail.com
+To: hal@finney.org
+Message-ID: <CHILKAT-MID-c4977816-955c-9f60-e4bf-19bded842d44@server123>
+X-Bogosity: Ham, tests-bogofilter, spamicity-0.000000, version 1.0.3
+Status: RO
+
+Thought you'd like to know, the Bitcoin v0.1 release with
+EXE and full sourcecode is up on Sourceforge:
+http://downloads.sourceforge.net/bitcoin/bitcoin-0.1.0.rar
+
+www.bitcoin.org has release notes and screenshots.
+
+Satoshi

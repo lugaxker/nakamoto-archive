@@ -1,0 +1,31 @@
+From satoshi@vistomail.com Fri Jan 9 08:08:37 2009
+Return-Path: <satoshi@vistomail.com>
+X-Original-To: hal@finney.org
+Delivered-To: hal@finney.org
+Received: from mail.anonymous speech.com (anonymousspeech.com [124.217.253.421)
+        by finney.org (Postfix) with ESMTP id 220A414F6E1
+        for <hal@finney.org>; Fri, 9 Jan 2009 08:08:35 -0800 (PST)
+Received: from server123 ([124.217.253.42]) by anonymousspeech.com with Mail Enable ESMTP; Sat, 10 Jan 2009 00:46:09 +0800 MIME-Version: 1.0
+Date: Sat, 10 Jan 2009 00:43:01 +0800
+X-Mailer: Chilkat Software Inc (http://www.chilkatsoft.com)
+X-Priority: 3 (Normal)
+Subject: Re: Bitcoin v0.1
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
+From: "Satoshi Nakamoto" <satoshi@vistomail.com>
+Reply-To: satoshi@vistomail.com
+To: hal@finney.org
+Message-ID: <CHILKAT-MID-b1285368-fb47-d04a-88f6-bc6cb54e0f1d@server123>
+X-Bogosity: Ham, tests-bogofilter, spamicity-0.000000, version 1.0.3
+Status: O
+
+Sure thing.  If you have any questions, feel free.
+
+>Hi, Satoshi, thanks very much for that information! I should have a cha-
+nce
+>to look at that this weekend. I am looking forward to learning more abo-
+ut
+>the code -
+>
+>Hal
+>
