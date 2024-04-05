@@ -50,6 +50,7 @@ A new compilation could be made with the source files listed below.
 | bitcoin.pdf  | 2009-03-24 | March 2009 Bitcoin white paper | b1674191a88ec5cdd733e4240a81803105dc412d6c6708d53ab94fc248f4f553 | https://bitcoin.org/bitcoin.pdf |
 | thread1.html | 2009-04-12 | Emails to Mike Hearn (1/5) | 4cf3fd6749653aadfe710392fb10dfed8bb63edb4a398e84f4e01bb435ec9e00 | https://plan99.net/~mike/satoshi-emails/thread1.html |
 | thread2.html | 2009-04-25 | Emails to Mike Hearn (2/5) | 0dc6d0858c9a3a0c638039e1811be879aa568b64b93388357d0710d91c5e4117 | https://plan99.net/~mike/satoshi-emails/thread2.html |
+| mmalmi-satoshi.html | 2009-05-02 | Emails between Satoshi and Martti Malmi | feefc9377090a14740b8f76ac836b244ec753fce7a37b09cf97648bd87c3d4c0 | https://github.com/mmalmi/mmalmi.github.io/blob/6e20611f204a9b9afd9e9f83e2ffe69754118465/satoshi/index.html |
 | sourceforge-home-text-2.txt | 2009-09-16 | Descriptive text of the SourceForge project on Sept. 2009 | 048573dc782fb3d93ab19af6e0b7247aa9a62af5a0c247480fe8a4cccf6382bb | Retrieved from https://web.archive.org/web/20090916201827/https://sourceforge.net/projects/bitcoin/ |
 | thread3.html | 2010-12-27 | Emails to Mike Hearn (3/5) | 4875cb18a4f76dc47a97fb467944017bddc4a1131ad29a8ad43279abdc88468b | https://plan99.net/~mike/satoshi-emails/thread3.html |
 | thread4.html | 2011-03-07 | Emails to Mike Hearn (4/5) | 20d3291430c217afc4578bd404992039c709162a5dd4ecc5661a673690580198 | https://plan99.net/~mike/satoshi-emails/thread4.html |
