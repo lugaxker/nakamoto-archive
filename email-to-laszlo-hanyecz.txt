@@ -1,0 +1,18 @@
+nathanielpopper
+
+Here's what Satoshi wrote to the man responsible for Pizza Day, Laszlo Hanecz -- a r/bitcoin exclusive from "Digital Gold"
+
+In the course of reporting for my book Digital Gold I learned a lot more about the story of Laszlo Hanecz, the man who spent 10,000 Bitcoins for pizza back in 2010.
+
+How did Laszlo have all those Bitcoins? It is not widely known, but in April 2010, Laszlo was essentially the first person to experiment with using the GPU card in his computer to more efficiently mine Bitcoins. Before that, most Bitcoin users had been employing their much less efficient CPU to do the computations. Laszlo’s CPU had been winning, at most, one block of 50 Bitcoins each day, of the approximately 140 blocks that were released daily. Once Laszlo got his GPU card hooked in he began winning one or two blocks an hour, and occasionally more.
+
+When Laszlo first emailed Satoshi and told him about his plans to mine with his GPU, Satoshi had mixed feelings. Here is the email Satoshi wrote to Laszlo.
+
+A big attraction to new users is that anyone with a computer can generate some free coins. When there are 5000 users, that incentive may fade, but for now it's still true.
+GPUs would prematurely limit the incentive to only those with high end GPU hardware. It's inevitable that GPU compute clusters will eventually hog all the generated coins, but I don't want to hasten that day. If the difficulty gets really high, that increases the value of each coin in a way since the supply becomes more limited. The supply is the same: 50 coins every 10 minutes.
+But GPUs are much less evenly distributed, so the generated coins only go towards rewarding 20% of the people for joining the network instead of 100%.
+I don't mean to sound like a socialist, I don't care if wealth is concentrated, but for now, we get more growth by giving that money to 100% of the people than giving it to 20%. Also, the longer we can delay the GPU arms race, the more mature the OpenCL libraries get, and the more people will have OpenCL compatible video cards. If we see from the difficulty factor that someone is using too much GPU, we can certainly pick this OpenCL stuff up again then. Maybe my effort to maintain GPU innocence is running out of time. It's worked out so far.
+
+Thanks to Laszlo for sharing this piece of Bitcoin history.
+
+If you'd like to learn more about Laszlo, Satoshi and the rest of Bitcoin's history, please buy a copy of Digital Gold on Amazon, or on Overstock if you want to pay with Bitcoins.

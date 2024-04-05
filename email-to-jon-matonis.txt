@@ -1,0 +1,29 @@
+Jon Matonis
+Executive Director
+
+
+Members
+Pip
+56 posts
+Posted 22 December 2012 - 11:04 AM
+
+Thanks for sharing that, Gavin and Mike. It made me go back and look for my Satoshi correspondence, which unfortunately has been purged except for my last email from Satoshi on 4th March 2010. We went back and forth a bit on how bitcoin was an evolution over issuing mint functionality like Chaum's DigiCash and on what I could do to promote the protocol effort because we shared a lot of similar contacts from the "early" days. I am attaching it here partly so I don't misplace it again.
+
+
+--- On Thu, 3/4/10, Satoshi Nakamoto <satoshin@gmx.com> wrote:
+
+From: Satoshi Nakamoto <satoshin@gmx.com>
+Subject: Re: Introduction
+To: "Jon Matonis" <matonis@yahoo.com>
+Date: Thursday, March 4, 2010, 9:55 PM
+
+Nice blog.  That's the first I've seen that focuses on this subject.  I wish there was something like that when I originally researched this three years ago, there was scant to nothing back then.  I think I'll be a regular reader.
+
+Bitcoin would be right up your alley.  Its advantage is that it's P2P. There isn't a central mint or company running it.  As long as there are users, it survives.
+
+I'm sure you've already found the FAQ and Forum at bitcoin.org.
+
+The logo is here:
+http://www.bitcoin.o....php?topic=64.0
+
+Was there anything particular you were interested in?

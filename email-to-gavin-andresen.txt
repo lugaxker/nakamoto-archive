@@ -1,0 +1,59 @@
+Eleven years ago today I had my last email exchange with Satoshi; here it is:
+
+Subject: alert key
+Satoshi Nakamoto satoshin@gmx.com
+26 Apr 2011, 10:29
+
+I wish you wouldn’t keep talking about me as a mysterious shadowy
+figure, the press just turns that into a pirate currency angle. Maybe
+instead make it about the open source project and give more credit to
+your dev contributors; it helps motivate them.
+
+I’ve moved on to other things and will probably be unavailable. Here’s
+the CAlert key and broadcast code in case you need it. You should
+probably give it to at least one or two other people. There are a few
+long time users who are always around all the time.
+
+My reply:
+On Tue, Apr 26, 2011 at 4:29 AM, Satoshi Nakamoto satoshin@gmx.com wrote:
+
+I wish you wouldn’t keep talking about me as a mysterious shadowy figure,
+the press just turns that into a pirate currency angle. Maybe instead make
+it about the open source project and give more credit to your dev
+contributors; it helps motivate them.
+
+You must’ve read the Forbes article… yeah, I’m not happy with the
+‘wacky pirate money’ tone, either.
+
+More credit for the rest of the contributors is a very good idea.
+
+RE: forwarding the key/code: fricking fracking… now I’ve gotta
+figure out a couple of people who I can trust to keep them safe…
+
+On a completely different subject: I did something that I hope turns
+out to be smart, but might be stupid.
+
+I was contacted by http://www.iqt.org/ – they’re a US-govt-funded
+‘strategic investment’ company, and part of what they do is holding an
+annual conference on emerging technologies for US intelligence
+agencies. This year the theme is “Mobility of Money”.
+
+They asked if I’d be willing to talk about Bitcoin, and I committed to
+giving a 50-minute presentation and participating in a panel
+discussion.
+
+I hope that by talking directly to “them” and, more importantly,
+listening to their questions/concerns, they will think of Bitcoin the
+way I do– as a just-plain-better, more efficient,
+less-subject-to-political-whims money. Not as an all-powerful
+black-market tool that will be used by anarchists to overthrow The
+System.
+
+It might be really stupid if it just raises Bitcoin’s visibility on
+their radar, but I think it is way too late for that; Bitcoin is
+already on their radar.
+
+I plan on posting about this on the forums soon, because “Gavin
+secretly visits the CIA” would spin all sorts of conspiracy theories.
+“Gavin openly visits the CIA” will create enough conspiracy theories
+as it is.
