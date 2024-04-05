@@ -1,0 +1,528 @@
+sending: version      (46 bytes)  
+RandAddSeed() got 152496 bytes of performance data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bitcoin CMyApp::OnInit()
+Loading addresses...
+dbenv.open strAppDir=C:\Documents and Settings\hal\Application Data\Bitcoin
+mapAddresses:
+-----
+ addresses             3299217345
+Loading block index...
+000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b
+000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+0x5F1DF16B2B704C8A578D0BBAF74D385CDE12C11EE50455F3C438EF4C3FBCF649B6DE611FEAE06279A60939E028A8D65C10B73071A6F16719274855FEB0FD8A6704 OP_CHECKSIG
+CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=4a5e1e, nTime=1231006505, nBits=1d00ffff, nNonce=2083236893, vtx=1)
+  CTransaction(hash=4a5e1e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+    CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
+    CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
+  vMerkleTree: 4a5e1e 
+AddToBlockIndex: new best=000000000019d6  height=0
+RelayWalletTransactions()
+ block index            975110812
+Loading wallet...
+fGenerateBitcoins = 0
+nTransactionFee = 0
+addrIncoming = 0.0.0.0:8333
+ wallet                4699436850
+Done loading
+mapBlockIndex.size() = 1
+nBestHeight = 0
+mapKeys.size() = 1
+mapPubKeys.size() = 1
+mapWallet.size() = 0
+mapAddressBook.size() = 1
+addrLocalHost = 192.168.1.137:8333
+bound to addrLocalHost = 192.168.1.137:8333
+
+GetMyExternalIP() received [207.71.226.132] 207.71.226.132:8333
+ThreadMessageHandler started
+ThreadSocketHandler started
+ThreadOpenConnections started
+RefreshListCtrl starting
+RefreshListCtrl done
+IRC NOTICE AUTH :*** Looking up your hostname...
+IRC NOTICE AUTH :*** Checking ident
+IRC NOTICE AUTH :*** No identd (auth) response
+IRC NOTICE AUTH :*** Found your hostname
+SENDING: NICK uCeSAaG6R9Qidrs
+SENDING: USER uCeSAaG6R9Qidrs 8 * : uCeSAaG6R9Qidrs
+IRC :lem.freenode.net 001 uCeSAaG6R9Qidrs :Welcome to the freenode IRC Network uCeSAaG6R9Qidrs
+IRC :lem.freenode.net 002 uCeSAaG6R9Qidrs :Your host is lem.freenode.net[lem.freenode.net/6667], running version hyperion-1.0.2b
+IRC NOTICE uCeSAaG6R9Qidrs :*** Your host is lem.freenode.net[lem.freenode.net/6667], running version hyperion-1.0.2b
+IRC :lem.freenode.net 003 uCeSAaG6R9Qidrs :This server was created Mon Nov  3 21:00:41 UTC 2008
+IRC :lem.freenode.net 004 uCeSAaG6R9Qidrs lem.freenode.net hyperion-1.0.2b aAbBcCdDeEfFGhHiIjkKlLmMnNopPQrRsStTuUvVwWxXyYzZ01234569*@ bcdefFhiIklmnoPqstv
+SENDING: JOIN #bitcoin
+SENDING: WHO #bitcoin
+IRC :lem.freenode.net 005 uCeSAaG6R9Qidrs IRCD=dancer CAPAB CHANTYPES=# EXCEPTS INVEX CHANMODES=bdeIq,k,lfJD,cgijLmnPQrRstz CHANLIMIT=#:20 PREFIX=(ov)@+ MAXLIST=bdeI:50 MODES=4 STATUSMSG=@ KNOCK NICKLEN=16 :are supported by this server
+IRC :lem.freenode.net 005 uCeSAaG6R9Qidrs SAFELIST CASEMAPPING=ascii CHANNELLEN=30 TOPICLEN=450 KICKLEN=450 KEYLEN=23 USERLEN=10 HOSTLEN=63 SILENCE=50 :are supported by this server
+IRC :lem.freenode.net 251 uCeSAaG6R9Qidrs :There are 25590 listed and 21698 unlisted users on 34 servers
+IRC :lem.freenode.net 252 uCeSAaG6R9Qidrs 37 :flagged staff members
+IRC :lem.freenode.net 254 uCeSAaG6R9Qidrs 27295 :channels formed
+IRC :lem.freenode.net 255 uCeSAaG6R9Qidrs :I have 1768 clients and 0 servers
+IRC :lem.freenode.net 265 uCeSAaG6R9Qidrs :Current local  users: 1768  Max: 2281
+IRC :lem.freenode.net 266 uCeSAaG6R9Qidrs :Current global users: 47288  Max: 51553
+IRC :lem.freenode.net 250 uCeSAaG6R9Qidrs :Highest connection count: 2282 (2281 clients) (387278 since server was (re)started)
+IRC :lem.freenode.net 375 uCeSAaG6R9Qidrs :- lem.freenode.net Message of the Day - 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- LEM, STANISLAW, [1921-2006]. Born in Lwow, Poland, he is the
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- author of numerous books, many of which were translated into
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- 40 languages and sold over 27 million copies. His novels
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- include The Invincible, The Cyberiad and Peace on
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- Earth.  His one non-fiction work is Microworlds: Writings
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- on Science Fiction and Fantasy.
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- You're using freenode, a service of Peer-Directed Projects
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- Center (http://freenode.net/pdpc.shtml).
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- By connecting to freenode you indicate that you have read 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- and agree to adhere to our policies and procedures as per 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- the website (http://freenode.net). We would like to remind 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- you that unauthorized public logging of channels on the 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- network is prohibited. Public channel logging should only 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- take place where the channel owner(s) has requested this 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- and users of the channel are all made aware (if you are 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- publically logging your channel, you may wish to keep a 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- notice in topic and perhaps as a on-join message).
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- By registering your nickname with Nickserv you agree that you 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- are 13 years of age, or older. For more information about the 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- Children's Online Privacy Protection Act please see their 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- website at (http://www.coppa.org).
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- freenode runs an open proxy scanner. Your use of the network
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- indicates your acceptance of this policy. For details on
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- freenode network policy, please take a look at our policy
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- page (http://freenode.net/policy.shtml). Thank you for using
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- the network!
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- freenode is a service of Peer-Directed Projects Center, an
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- IRS 501(c)(3) not-for-profit organization.  Our yearly
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- fundraiser will begin soon; if you'd like to donate early,
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- please see http://freenode.net/pdpc_donations.shtml for more
+IRC :lem.freenode.net 372 uCeSAaG6R9Qidrs :- information.  Thank you for using freenode!
+IRC :lem.freenode.net 376 uCeSAaG6R9Qidrs :End of /MOTD command.
+IRC :freenode-connect!freenode@freenode/bot/connect PRIVMSG ucesaag6r9qidrs :VERSION
+IRC :uCeSAaG6R9Qidrs!n=uCeSAaG6@226-132.adsl2.netlojix.net JOIN :#bitcoin
+GOT JOIN: [uCeSAaG6R9Qidrs]  CAddress(207.71.226.132:8333)
+IRC :lem.freenode.net 353 uCeSAaG6R9Qidrs @ #bitcoin :uCeSAaG6R9Qidrs x93428606 @u4rfwoe8g3w5Tai 
+IRC :lem.freenode.net 366 uCeSAaG6R9Qidrs #bitcoin :End of /NAMES list.
+IRC :lem.freenode.net 352 uCeSAaG6R9Qidrs #bitcoin n=uCeSAaG6 226-132.adsl2.netlojix.net irc.freenode.net uCeSAaG6R9Qidrs H :0  uCeSAaG6R9Qidrs
+GOT WHO: [uCeSAaG6R9Qidrs]  CAddress(207.71.226.132:8333)
+IRC :lem.freenode.net 352 uCeSAaG6R9Qidrs #bitcoin i=x9342860 gateway/tor/x-bacc5813d7825a9a irc.freenode.net x93428606 H :0  x93428606
+GOT WHO: [x93428606]  IRC :lem.freenode.net 352 uCeSAaG6R9Qidrs #bitcoin n=u4rfwoe8 h-68-164-57-219.lsanca54.dynamic.covad.net irc.freenode.net u4rfwoe8g3w5Tai H@ :0  u4rfwoe8g3w5Tai
+GOT WHO: [u4rfwoe8g3w5Tai]  new  CAddress(68.164.57.219:8333)
+IRC :lem.freenode.net 315 uCeSAaG6R9Qidrs #bitcoin :End of /WHO list.
+IRC :u4rfwoe8g3w5Tai!n=u4rfwoe8@h-68-164-57-219.lsanca54.dynamic.covad.net QUIT :Read error: 131 (Connection reset by peer)
+IRC :lem.freenode.net 477 ucesaag6r9qidrs #bitcoin :[freenode-info] if you're at a conference and other people are having trouble connecting, please mention it to staff: http://freenode.net/faq.shtml#gettinghelp
+trying 68.164.57.219:8333
+connected 68.164.57.219:8333
+sending: version      (46 bytes)  
+sending: addr         (27 bytes)  
+sending: getaddr      (0 bytes)  
+MainFrameRepaint()
+ProcessMessages(66 bytes)
+received: version      (46 bytes)  64 00 00 00 01 00 00 00 00 00 00 00 80 f0 68 49 00 00 00 00 00 00 00 00 00 
+Added time data, samples 2, ip db39a444, offset -4 (+0 minutes)
+sending: getblocks    (101 bytes)  
+version addrMe = 192.168.0.1:1531
+ProcessMessages(1785 bytes)
+received: inv          (1765 bytes)  31 02 00 00 00 48 60 eb 18 bf 1b 16 20 e3 7e 94 90 fc 8a 42 75 14 41 6f d7 
+  got inventory: block 00000000839a  new
+askfor block 00000000839a  0
+  got inventory: block 000000006a62  new
+askfor block 000000006a62  0
+  got inventory: block 0000000082b5  new
+askfor block 0000000082b5  0
+  got inventory: block 000000004eba  new
+askfor block 000000004eba  0
+  got inventory: block 000000009b72  new
+askfor block 000000009b72  0
+  got inventory: block 000000003031  new
+askfor block 000000003031  0
+  got inventory: block 000000007196  new
+askfor block 000000007196  0
+  got inventory: block 00000000408c  new
+askfor block 00000000408c  0
+  got inventory: block 000000008d9d  new
+askfor block 000000008d9d  0
+  got inventory: block 000000002c05  new
+askfor block 000000002c05  0
+  got inventory: block 0000000097be  new
+askfor block 0000000097be  0
+  got inventory: block 0000000027c2  new
+askfor block 0000000027c2  0
+  got inventory: block 000000005c51  new
+askfor block 000000005c51  0
+  got inventory: block 0000000080f1  new
+askfor block 0000000080f1  0
+  got inventory: block 00000000b332  new
+askfor block 00000000b332  0
+  got inventory: block 00000000174a  new
+askfor block 00000000174a  0
+  got inventory: block 000000003ff1  new
+askfor block 000000003ff1  0
+  got inventory: block 000000008693  new
+askfor block 000000008693  0
+  got inventory: block 00000000841c  new
+askfor block 00000000841c  0
+  got inventory: block 0000000067a9  new
+askfor block 0000000067a9  0
+  got inventory: block 000000006f01  new
+askfor block 000000006f01  0
+  got inventory: block 0000000098b5  new
+askfor block 0000000098b5  0
+  got inventory: block 000000000cd3  new
+askfor block 000000000cd3  0
+  got inventory: block 00000000fc05  new
+askfor block 00000000fc05  0
+  got inventory: block 000000008e35  new
+askfor block 000000008e35  0
+  got inventory: block 000000004143  new
+askfor block 000000004143  0
+  got inventory: block 000000007135  new
+askfor block 000000007135  0
+  got inventory: block 00000000bb0d  new
+askfor block 00000000bb0d  0
+  got inventory: block 00000000c57a  new
+askfor block 00000000c57a  0
+  got inventory: block 00000000bc91  new
+askfor block 00000000bc91  0
+  got inventory: block 000000009700  new
+askfor block 000000009700  0
+  got inventory: block 00000000e5cb  new
+askfor block 00000000e5cb  0
+  got inventory: block 00000000a870  new
+askfor block 00000000a870  0
+  got inventory: block 00000000a73f  new
+askfor block 00000000a73f  0
+  got inventory: block 00000000b572  new
+askfor block 00000000b572  0
+  got inventory: block 00000000f824  new
+askfor block 00000000f824  0
+  got inventory: block 00000000ddd9  new
+askfor block 00000000ddd9  0
+  got inventory: block 000000007c19  new
+askfor block 000000007c19  0
+  got inventory: block 000000005665  new
+askfor block 000000005665  0
+  got inventory: block 00000000b2f0  new
+askfor block 00000000b2f0  0
+  got inventory: block 00000000ad2b  new
+askfor block 00000000ad2b  0
+  got inventory: block 00000000314e  new
+askfor block 00000000314e  0
+  got inventory: block 00000000ac21  new
+askfor block 00000000ac21  0
+  got inventory: block 000000002978  new
+askfor block 000000002978  0
+  got inventory: block 000000009189  new
+askfor block 000000009189  0
+  got inventory: block 0000000002d5  new
+askfor block 0000000002d5  0
+  got inventory: block 000000001a5c  new
+askfor block 000000001a5c  0
+  got inventory: block 000000008896  new
+askfor block 000000008896  0
+  got inventory: block 00000000f067  new
+askfor block 00000000f067  0
+sending getdata: block 00000000839a
+sending getdata: block 000000006a62
+sending getdata: block 0000000082b5
+sending getdata: block 000000004eba
+sending getdata: block 000000009b72
+sending getdata: block 000000003031
+sending getdata: block 000000007196
+sending getdata: block 00000000408c
+sending getdata: block 000000008d9d
+sending getdata: block 000000002c05
+sending getdata: block 0000000097be
+sending getdata: block 0000000027c2
+sending getdata: block 000000005c51
+sending getdata: block 0000000080f1
+sending getdata: block 00000000b332
+sending getdata: block 00000000174a
+sending getdata: block 000000003ff1
+sending getdata: block 000000008693
+sending getdata: block 00000000841c
+sending getdata: block 0000000067a9
+sending getdata: block 000000006f01
+sending getdata: block 0000000098b5
+sending getdata: block 000000000cd3
+sending getdata: block 00000000fc05
+sending getdata: block 000000008e35
+sending getdata: block 000000004143
+sending getdata: block 000000007135
+sending getdata: block 00000000bb0d
+sending getdata: block 00000000c57a
+sending getdata: block 00000000bc91
+sending getdata: block 000000009700
+sending getdata: block 00000000e5cb
+sending getdata: block 00000000a870
+sending getdata: block 00000000a73f
+sending getdata: block 00000000b572
+sending getdata: block 00000000f824
+sending getdata: block 00000000ddd9
+sending getdata: block 000000007c19
+sending getdata: block 000000005665
+sending getdata: block 00000000b2f0
+sending getdata: block 00000000ad2b
+sending getdata: block 00000000314e
+sending getdata: block 00000000ac21
+sending getdata: block 000000002978
+sending getdata: block 000000009189
+sending getdata: block 0000000002d5
+sending getdata: block 000000001a5c
+sending getdata: block 000000008896
+sending getdata: block 00000000f067
+sending: getdata      (1765 bytes)  
+IRC :u4rfwoe8g3w5Tai!n=u4rfwoe8@h-68-164-57-219.lsanca54.dynamic.covad.net JOIN :#bitcoin
+GOT JOIN: [u4rfwoe8g3w5Tai]  sending: version      (46 bytes)  
+RandAddSeed() got 153528 bytes of performance data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bitcoin CMyApp::OnInit()
+Loading addresses...
+dbenv.open strAppDir=C:\Documents and Settings\hal\Application Data\Bitcoin
+mapAddresses:
+CAddress(68.164.57.219:8333)
+-----
+ addresses             3755451878
+Loading block index...
+LoadBlockIndex(): hashBestChain=000000000019d6  height=0
+ block index             16394925
+Loading wallet...
+fGenerateBitcoins = 0
+nTransactionFee = 0
+addrIncoming = 207.71.226.132:8333
+ wallet                 100989863
+Done loading
+mapBlockIndex.size() = 1
+nBestHeight = 0
+mapKeys.size() = 1
+mapPubKeys.size() = 1
+mapWallet.size() = 0
+mapAddressBook.size() = 1
+addrLocalHost = 192.168.1.137:8333
+bound to addrLocalHost = 192.168.1.137:8333
+
+GetMyExternalIP() received [207.71.226.132] 207.71.226.132:8333
+RefreshListCtrl starting
+RefreshListCtrl done
+IRC NOTICE AUTH :*** Looking up your hostname...
+IRC NOTICE AUTH :*** Checking ident
+IRC NOTICE AUTH :*** No identd (auth) response
+IRC NOTICE AUTH :*** Found your hostname
+SENDING: NICK uCeSAaG6R9Qidrs
+SENDING: USER uCeSAaG6R9Qidrs 8 * : uCeSAaG6R9Qidrs
+IRC :verne.freenode.net 001 uCeSAaG6R9Qidrs :Welcome to the freenode IRC Network uCeSAaG6R9Qidrs
+IRC :verne.freenode.net 002 uCeSAaG6R9Qidrs :Your host is verne.freenode.net[verne.freenode.net/6667], running version hyperion-1.0.2b
+IRC NOTICE uCeSAaG6R9Qidrs :*** Your host is verne.freenode.net[verne.freenode.net/6667], running version hyperion-1.0.2b
+IRC :verne.freenode.net 003 uCeSAaG6R9Qidrs :This server was created Thu Jun 12 14:59:19 UTC 2008
+IRC :verne.freenode.net 004 uCeSAaG6R9Qidrs verne.freenode.net hyperion-1.0.2b aAbBcCdDeEfFGhHiIjkKlLmMnNopPQrRsStTuUvVwWxXyYzZ01234569*@ bcdefFhiIklmnoPqstv
+ThreadSocketHandler started
+ThreadMessageHandler started
+ThreadOpenConnections started
+SENDING: JOIN #bitcoin
+SENDING: WHO #bitcoin
+IRC :verne.freenode.net 005 uCeSAaG6R9Qidrs IRCD=dancer CAPAB CHANTYPES=# EXCEPTS INVEX CHANMODES=bdeIq,k,lfJD,cgijLmnPQrRstz CHANLIMIT=#:20 PREFIX=(ov)@+ MAXLIST=bdeI:50 MODES=4 STATUSMSG=@ KNOCK NICKLEN=16 :are supported by this server
+IRC :verne.freenode.net 005 uCeSAaG6R9Qidrs SAFELIST CASEMAPPING=ascii CHANNELLEN=30 TOPICLEN=450 KICKLEN=450 KEYLEN=23 USERLEN=10 HOSTLEN=63 SILENCE=50 :are supported by this server
+IRC :verne.freenode.net 251 uCeSAaG6R9Qidrs :There are 25594 listed and 21715 unlisted users on 34 servers
+IRC :verne.freenode.net 252 uCeSAaG6R9Qidrs 37 :flagged staff members
+IRC :verne.freenode.net 254 uCeSAaG6R9Qidrs 27290 :channels formed
+IRC :verne.freenode.net 255 uCeSAaG6R9Qidrs :I have 2834 clients and 0 servers
+IRC :verne.freenode.net 265 uCeSAaG6R9Qidrs :Current local  users: 2834  Max: 3699
+IRC :verne.freenode.net 266 uCeSAaG6R9Qidrs :Current global users: 47309  Max: 51553
+IRC :verne.freenode.net 250 uCeSAaG6R9Qidrs :Highest connection count: 3701 (3699 clients) (1015000 since server was (re)started)
+IRC :verne.freenode.net 375 uCeSAaG6R9Qidrs :- verne.freenode.net Message of the Day - 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- Welcome to verne.freenode.net in Newark, NJ, US.
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- Thanks to Choopa 'www.choopa.com' for providing this server!
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- You're using freenode, a service of Peer-Directed Projects
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- Center (http://freenode.net/pdpc.shtml).
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- By connecting to freenode you indicate that you have read 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- and agree to adhere to our policies and procedures as per 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- the website (http://freenode.net). We would like to remind 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- you that unauthorized public logging of channels on the 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- network is prohibited. Public channel logging should only 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- take place where the channel owner(s) has requested this 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- and users of the channel are all made aware (if you are 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- publically logging your channel, you may wish to keep a 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- notice in topic and perhaps as a on-join message).
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- By registering your nickname with Nickserv you agree that you 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- are 13 years of age, or older. For more information about the 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- Children's Online Privacy Protection Act please see their 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- website at (http://www.coppa.org).
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- freenode runs an open proxy scanner. Your use of the network
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- indicates your acceptance of this policy. For details on
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- freenode network policy, please take a look at our policy
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- page (http://freenode.net/policy.shtml). Thank you for using
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- the network!
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- freenode is a service of Peer-Directed Projects Center, an
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- IRS 501(c)(3) not-for-profit organization.  Our yearly
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- fundraiser will begin soon; if you'd like to donate early,
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- please see http://freenode.net/pdpc_donations.shtml for more
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- information.  Thank you for using freenode!
+IRC :verne.freenode.net 376 uCeSAaG6R9Qidrs :End of /MOTD command.
+trying 68.164.57.219:8333
+connected 68.164.57.219:8333
+sending: version      (46 bytes)  
+sending: addr         (27 bytes)  
+sending: getaddr      (0 bytes)  
+MainFrameRepaint()
+IRC :uCeSAaG6R9Qidrs!n=uCeSAaG6@226-132.adsl2.netlojix.net JOIN :#bitcoin
+GOT JOIN: [uCeSAaG6R9Qidrs]  sending: version      (46 bytes)  
+RandAddSeed() got 153752 bytes of performance data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bitcoin CMyApp::OnInit()
+Loading addresses...
+dbenv.open strAppDir=C:\Documents and Settings\hal\Application Data\Bitcoin
+mapAddresses:
+CAddress(68.164.57.219:8333)
+-----
+ addresses             2609062320
+Loading block index...
+LoadBlockIndex(): hashBestChain=000000000019d6  height=0
+ block index             16652565
+Loading wallet...
+fGenerateBitcoins = 0
+nTransactionFee = 0
+addrIncoming = 207.71.226.132:8333
+ wallet                  42798458
+Done loading
+mapBlockIndex.size() = 1
+nBestHeight = 0
+mapKeys.size() = 1
+mapPubKeys.size() = 1
+mapWallet.size() = 0
+mapAddressBook.size() = 1
+addrLocalHost = 192.168.1.137:8333
+bound to addrLocalHost = 192.168.1.137:8333
+
+GetMyExternalIP() received [207.71.226.132] 207.71.226.132:8333
+RefreshListCtrl starting
+RefreshListCtrl done
+IRC NOTICE AUTH :*** Looking up your hostname...
+IRC NOTICE AUTH :*** Found your hostname, welcome back
+SENDING: NICK uCeSAaG6R9Qidrs
+SENDING: USER uCeSAaG6R9Qidrs 8 * : uCeSAaG6R9Qidrs
+IRC NOTICE AUTH :*** Checking ident
+IRC NOTICE AUTH :*** No identd (auth) response
+ThreadSocketHandler started
+ThreadMessageHandler started
+ThreadOpenConnections started
+IRC :verne.freenode.net 001 uCeSAaG6R9Qidrs :Welcome to the freenode IRC Network uCeSAaG6R9Qidrs
+IRC :verne.freenode.net 002 uCeSAaG6R9Qidrs :Your host is verne.freenode.net[verne.freenode.net/6667], running version hyperion-1.0.2b
+IRC NOTICE uCeSAaG6R9Qidrs :*** Your host is verne.freenode.net[verne.freenode.net/6667], running version hyperion-1.0.2b
+IRC :verne.freenode.net 003 uCeSAaG6R9Qidrs :This server was created Thu Jun 12 14:59:19 UTC 2008
+IRC :verne.freenode.net 004 uCeSAaG6R9Qidrs verne.freenode.net hyperion-1.0.2b aAbBcCdDeEfFGhHiIjkKlLmMnNopPQrRsStTuUvVwWxXyYzZ01234569*@ bcdefFhiIklmnoPqstv
+trying 68.164.57.219:8333
+SENDING: JOIN #bitcoin
+SENDING: WHO #bitcoin
+IRC :verne.freenode.net 005 uCeSAaG6R9Qidrs IRCD=dancer CAPAB CHANTYPES=# EXCEPTS INVEX CHANMODES=bdeIq,k,lfJD,cgijLmnPQrRstz CHANLIMIT=#:20 PREFIX=(ov)@+ MAXLIST=bdeI:50 MODES=4 STATUSMSG=@ KNOCK NICKLEN=16 :are supported by this server
+IRC :verne.freenode.net 005 uCeSAaG6R9Qidrs SAFELIST CASEMAPPING=ascii CHANNELLEN=30 TOPICLEN=450 KICKLEN=450 KEYLEN=23 USERLEN=10 HOSTLEN=63 SILENCE=50 :are supported by this server
+IRC :verne.freenode.net 251 uCeSAaG6R9Qidrs :There are 25591 listed and 21714 unlisted users on 34 servers
+IRC :verne.freenode.net 252 uCeSAaG6R9Qidrs 37 :flagged staff members
+IRC :verne.freenode.net 254 uCeSAaG6R9Qidrs 27290 :channels formed
+IRC :verne.freenode.net 255 uCeSAaG6R9Qidrs :I have 2834 clients and 0 servers
+IRC :verne.freenode.net 265 uCeSAaG6R9Qidrs :Current local  users: 2834  Max: 3699
+IRC :verne.freenode.net 266 uCeSAaG6R9Qidrs :Current global users: 47305  Max: 51553
+IRC :verne.freenode.net 250 uCeSAaG6R9Qidrs :Highest connection count: 3701 (3699 clients) (1015002 since server was (re)started)
+IRC :verne.freenode.net 375 uCeSAaG6R9Qidrs :- verne.freenode.net Message of the Day - 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- Welcome to verne.freenode.net in Newark, NJ, US.
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- Thanks to Choopa 'www.choopa.com' for providing this server!
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- You're using freenode, a service of Peer-Directed Projects
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- Center (http://freenode.net/pdpc.shtml).
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- By connecting to freenode you indicate that you have read 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- and agree to adhere to our policies and procedures as per 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- the website (http://freenode.net). We would like to remind 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- you that unauthorized public logging of channels on the 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- network is prohibited. Public channel logging should only 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- take place where the channel owner(s) has requested this 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- and users of the channel are all made aware (if you are 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- publically logging your channel, you may wish to keep a 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- notice in topic and perhaps as a on-join message).
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- By registering your nickname with Nickserv you agree that you 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- are 13 years of age, or older. For more information about the 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- Children's Online Privacy Protection Act please see their 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- website at (http://www.coppa.org).
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- freenode runs an open proxy scanner. Your use of the network
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- indicates your acceptance of this policy. For details on
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- freenode network policy, please take a look at our policy
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- page (http://freenode.net/policy.shtml). Thank you for using
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- the network!
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- 
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- freenode is a service of Peer-Directed Projects Center, an
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- IRS 501(c)(3) not-for-profit organization.  Our yearly
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- fundraiser will begin soon; if you'd like to donate early,
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- please see http://freenode.net/pdpc_donations.shtml for more
+IRC :verne.freenode.net 372 uCeSAaG6R9Qidrs :- information.  Thank you for using freenode!
+IRC :verne.freenode.net 376 uCeSAaG6R9Qidrs :End of /MOTD command.
+connected 68.164.57.219:8333
+sending: version      (46 bytes)  
+sending: addr         (27 bytes)  
+sending: getaddr      (0 bytes)  
+MainFrameRepaint()
+IRC :uCeSAaG6R9Qidrs!n=uCeSAaG6@226-132.adsl2.netlojix.net JOIN :#bitcoin
+GOT JOIN: [uCeSAaG6R9Qidrs]  
