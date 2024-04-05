@@ -18,3 +18,4 @@ A new compilation could be made with the source files listed below.
 | Name                      | Date       | Description                 | Hash (SHA256)                                                    | Source(s)                             |
 |---------------------------|------------|-----------------------------|------------------------------------------------------------------|---------------------------------------|
 |                           |            |                             |                                                                  |                                       |
+| adam-back-exhibit-ab1.pdf | 2008-08-20 | Emails between Satoshi and Adam Back | aa30732a9d26cb1b46aefcef5bb344ff3440bff800c4ee12fa0e292c668eee7a | https://s3.documentcloud.org/documents/24439625/adam-back-exhibit-ab1-1.pdf https://www.wired.com/story/craig-wright-trial-bitcoin-royalty-testimony/ |
