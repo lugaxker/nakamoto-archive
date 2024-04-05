@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd"><html lang="en"><head><meta http-equiv=Content-Type content="text/html; charset=UTF-8"><style type="text/css" nonce="oXUSiE7dn7dWDDtoHJFQ8e4BPdI">
+body,td,div,p,a,input {font-family: arial, sans-serif;}
+</style><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Gmail - Questions about BitCoin</title><style type="text/css" nonce="oXUSiE7dn7dWDDtoHJFQ8e4BPdI">
+body, td {font-size:13px} a:link, a:active {color:#1155CC; text-decoration:none} a:hover {text-decoration:underline; cursor: pointer} a:visited{color:##6611CC} img{border:0px} pre { white-space: pre; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word; max-width: 800px; overflow: auto;} .logo { left: -7px; position: relative; }
+</style><body><div class="bodycontainer"><div class="maincontent"><table width=100% cellpadding=0 cellspacing=0 border=0><tr><td><font size=+1><b>Questions about BitCoin</b></font><br><font size=-1 color=#777>17 messages</font></td></tr></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Sun, Apr 12, 2009 at 12:46 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: satoshin@gmx.com</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Hi Satoshi,<br />
+<br />
+I read your paper on BitCoin with great interest. I found it a bit<br />
+confusing though - I believe it may be easier to follow if you provide<br />
+some examples.<br />
+<br />
+Specifically, it's not quite clear to me what blocks contain. If I<br />
+understand correctly, there is only one (or maybe a few) global<br />
+chain[s] into which all transactions are hashed. If there is only one<br />
+chain recording &quot;the story of the economy&quot; so to speak, how does this<br />
+scale? In an imaginary planet-wide deployment there would be millions<br />
+of even billions of transactions per hour being hashed into the chain.<br />
+I realize that each PoW can wrap many transactions in one block,<br />
+nonetheless, that's a large amount of data to hash. If there are many<br />
+chains, how are transactions assigned to each chain such that it is<br />
+still difficult to overpower the network? Eg, if there are 10 global<br />
+chains, the amount of cpu power you need to beat the system is only<br />
+10% of what it was previously.<br />
+<br />
+I also wonder if the assumption of 1 core = 1 vote is sound. If the<br />
+majority of nodes are on standard computers, it seems likely that an<br />
+attacker could use FPGA or custom ASICs to get significantly better<br />
+performance. What are your thoughts on using custom hardware to beat<br />
+the chain?<br />
+<br />
+I found the section on incentives hard to follow. In particular, I'm<br />
+not clear on what triggers the transition from minting new coins as a<br />
+reason to run a node, to charging transaction fees (isn't the point of<br />
+BitCoin largely to zero transaction costs anyway?). Presumably there's<br />
+some human in charge of the system - eg, you decided somehow that 24<br />
+million coins was a good number to have, and would distribute some<br />
+kind of rules file saying &quot;coins minted after this timestamp must have<br />
+an N+1 zero bits prefix&quot;, which honest nodes enforce.<br />
+<br />
+How did you decide on the inflation schedule for v1? Where did 24<br />
+million coins come from? What denominations are these coins? You<br />
+mention a way to combine and split value but I'm not clear on how this<br />
+works. For instance are bitcoins always denominated by an integer or<br />
+can you have fractional bitcoins?<br />
+<br />
+So many questions :) But it's rare that I encounter truly<br />
+revolutionary ideas. The last time I was this excited about a new<br />
+monetary scheme was when I discovered Ripple. If you have any thoughts<br />
+on Ripple, I'd also love to hear them.<br />
+<br />
+thanks -mike<br />
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Sun, Apr 12, 2009 at 10:44 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Hi Mike,<br>
+<br>
+I&#39;m glad to answer any questions you have.  If I get time, I ought to write a FAQ to supplement the paper.<br>
+<br>
+There is only one global chain.<br>
+<br>
+The existing Visa credit card network processes about 15 million Internet purchases per day worldwide.  Bitcoin can already scale much larger than that with existing hardware for a fraction of the cost.  It never really hits a scale ceiling.  If you&#39;re interested, I can go over the ways it would cope with extreme size.<br>
+<br>
+By Moore&#39;s Law, we can expect hardware speed to be 10 times faster in 5 years and 100 times faster in 10.  Even if Bitcoin grows at crazy adoption rates, I think computer speeds will stay ahead of the number of transactions.<br>
+<br>
+I don&#39;t anticipate that fees will be needed anytime soon, but if it becomes too burdensome to run a node, it is possible to run a node that only processes transactions that include a transaction fee.  The owner of the node would decide the minimum fee they&#39;ll accept.  Right now, such a node would get nothing, because nobody includes a fee, but if enough nodes did that, then users would get faster acceptance if they include a fee, or slower if they don&#39;t.  The fee the market would settle on should be minimal.  If a node requires a higher fee, that node would be passing up all transactions with lower fees.  It could do more volume and probably make more money by processing as many paying transactions as it can.  The transition is not controlled by some human in charge of the system though, just individuals reacting on their own to market forces.<br>
+<br>
+Eventually, most nodes may be run by specialists with multiple GPU cards.  For now, it&#39;s nice that anyone with a PC can play without worrying about what video card they have, and hopefully it&#39;ll stay that way for a while.  More computers are shipping with fairly decent GPUs these days, so maybe later we&#39;ll transition to that.<br>
+<br>
+A key aspect of Bitcoin is that the security of the network grows as the size of the network and the amount of value that needs to be protected grows.  The down side is that it&#39;s vulnerable at the beginning when it&#39;s small, although the value that could be stolen should always be smaller than the amount of effort required to steal it.  If someone has other motives to prove a point, they&#39;ll just be proving a point I already concede.<br>
+<br>
+My choice for the number of coins and distribution schedule was an educated guess.  It was a difficult choice, because once the network is going it&#39;s locked in and we&#39;re stuck with it.  I wanted to pick something that would make prices similar to existing currencies, but without knowing the future, that&#39;s very hard.  I ended up picking something in the middle.  If Bitcoin remains a small niche, it&#39;ll be worth less per unit than existing currencies.  If you imagine it being used for some fraction of world commerce, then there&#39;s only going to be 21 million coins for the whole world, so it would be worth much more per unit.  Values are 64-bit integers with 8 decimal places, so 1 coin is represented internally as 100000000.  There&#39;s plenty of granularity if typical prices become small.  For example, if 0.001 is worth 1 Euro, then it might be easier to change where the decimal point is displayed, so if you had 1 Bitcoin it&#39;s now displayed as 1000, and 0.001 is displayed as 1.<br>
+<br>
+Ripple is interesting in that it&#39;s the only other system that does something with trust besides concentrate it into a central server.<font color=#888888><br>
+<br>
+Satoshi</font><div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Mon, Apr 13, 2009 at 1:39 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Thanks Satoshi,<br />
+<br />
+I tried the app yesterday. It seems to work pretty well running on<br />
+Wine (I tried it on MacOS but it should run on Linux too, and will try<br />
+that next week when I am back at work).<br />
+<br />
+In the lower right hand corner it has a block count which increases<br />
+rapidly and then stops. Is this the length of the global chain? It<br />
+seems to advance far too fast for that. Or is this the number of<br />
+genesis blocks that have been tried but did not result in a partial<br />
+collision? I'm not sure if the way it stops and starts is expected, or<br />
+some glitch caused by it running under emulation. My best guess - it<br />
+is the length of the global chain, and the rapid advance at the start<br />
+is as the software downloads and verifies the preceding blocks in the<br />
+chain as being valid.<br />
+<br />
+With regards to the buyer/seller experience, I understand that the<br />
+global chain advances at about 6-7 blocks per hour under the current<br />
+settings. If we assume that 0.1% is a good risk rate, then z=5 thus<br />
+any transaction must wait a bit less than an hour before being<br />
+solidified in the chain. As micropayments for things like web content<br />
+or virtual goods are by definition something that requires low<br />
+overhead, waiting an hour seems like quite a significant hurdle.<br />
+<br />
+I understand that nodes attempt to find a POW to advance the global<br />
+chain in an uncoordinated fashion. This sentence however:<br />
+<br />
+&nbsp; &nbsp; &quot;If a majority of CPU power is controlled by honest nodes, the<br />
+honest chain will grow the&nbsp; fastest and outpace any competing chains.&quot;<br />
+<br />
+is confusing for me, because it appears the only way the honest chain<br />
+can grow faster than a chain worked on by 1 attacking cpu is if the<br />
+keyspace to scan looking for a partial collision is sharded evenly<br />
+amongst the participating honest nodes. That way the speed at which<br />
+collisions are found would be proportional to the number of nodes. Yet<br />
+I don't see any discussion of such work sharding, which obviously adds<br />
+complexity. Likewise:<br />
+<br />
+&nbsp; &nbsp;&quot;To compensate for increasing hardware speed and varying interest<br />
+in running nodes over time,<br />
+the proof-of-work difficulty is determined by a moving average<br />
+targeting an average number of<br />
+blocks per hour.&nbsp; If they're generated too fast, the difficulty increases.&quot;<br />
+<br />
+How is the required difficulty of each block communicated through the<br />
+network and agreed upon?<br />
+<br />
+Thanks once again. I have yet more questions but this is enough for<br />
+one email :) I will be happy to summarize these discussions into an<br />
+FAQ-like document at some point. Apologies if the questions seem<br />
+trivial.<br />
+<font color=#888888><br />
+-mike<br />
+</font><div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Mon, Apr 13, 2009 at 10:51 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Something else that isn't clear to me - does the global chain only get<br />
+extended when there is actual work to do? Currently it seems to grow<br />
+all the time, although there are only a few people in the network. So<br />
+presumably it gets extended with null blocks. Is this actually<br />
+required? The timestamping doesn't have to be actually in parallel<br />
+with real time does it ... it's merely establishing an ordering of<br />
+events.<br />
+<div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Mon, Apr 13, 2009 at 11:00 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><font color=#550055>Mike Hearn wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+My best guess - it<br>
+is the length of the global chain, and the rapid advance at the start<br>
+is as the software downloads and verifies the preceding blocks in the<br>
+chain as being valid.<br>
+</blockquote>
+<br></font>
+Right.  I&#39;m trying to think of more clear wording for that, maybe &quot;%d network blocks&quot; or &quot;%d block chain&quot;.<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+If we assume that 0.1% is a good risk rate, then z=5 thus<br>
+any transaction must wait a bit less than an hour before being<br>
+solidified in the chain. As micropayments for things like web content<br>
+or virtual goods are by definition something that requires low<br>
+overhead, waiting an hour seems like quite a significant hurdle.<br>
+</blockquote>
+<br></font>
+For the actual risk, multiply the 0.1% by the probability that the buyer is an attacker with a huge network of computers.<br>
+<br>
+For micropayments, you can safely accept the payment immediately.  The size of the payment is too small for the effort to steal it. Micropayments are almost always for intellectual property, where there&#39;s no physical loss to the merchant.  Anyone trying to steal a micropayment would probably not be a paying customer anyway, and if they want to steal intellectual property they can use the file sharing networks.<br>
+<br>
+Currently, businesses accept a certain chargeoff rate.  I believe the risk with 1 or even 0 confirming blocks will be much less than the rate of chargebacks on verified credit card transactions.<br>
+<br>
+The usual scam against a merchant that doesn&#39;t wait for confirming blocks would be to send a payment to a merchant, then quickly try to propagate a double-spend to the network before the merchant&#39;s copy. What the merchant can do is broadcast his transaction and then monitor the network for any double-spend copies.  The thief would not be able to broadcast during the monitoring period or else the merchant&#39;s node would receive a copy.  The merchant would only have to monitor for a minute or two until most of the network nodes have his version and it&#39;s too late for the thief&#39;s version to catch up and reach many nodes.  With just a minute or two delay, the chance of getting away without paying could be made much too low to scam.  A thief usually needs a high probability of getting an item for free to make it worthwhile.  Using a lot of CPU power to do the brute force attack discussed in the paper in addition to the above scam would not increase the thief&#39;s chances very much.<br>
+<br>
+Anything that grants access to something, like something that takes a while to download, access to a website, web hosting, a subscription or service, can be cancelled a few minutes later if the transaction is rejected.<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+is confusing for me, because it appears the only way the honest chain<br>
+can grow faster than a chain worked on by 1 attacking cpu is if the<br>
+keyspace to scan looking for a partial collision is sharded evenly<br>
+amongst the participating honest nodes. That way the speed at which<br>
+collisions are found would be proportional to the number of nodes. Yet<br>
+I don&#39;t see any discussion of such work sharding, which obviously adds<br>
+complexity. <br>
+</blockquote>
+<br></font>
+The keyspace is huge, 2^256.  The thing being hashed includes the node&#39;s public key and a random nonce, so the chance of any two nodes duplicating work on the same space is negligible.<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+How is the required difficulty of each block communicated through the<br>
+network and agreed upon?<br>
+</blockquote>
+<br></font>
+It&#39;s not communicated.  The formula is hardcoded in the program and every node does the same calculation to know what difficulty is required for the next block.  If someone diverged from the formula, their block would not be accepted by the majority.<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+Thanks once again. I have yet more questions but this is enough for<br>
+one email :) I will be happy to summarize these discussions into an<br>
+FAQ-like document at some point. Apologies if the questions seem<br>
+trivial.<br>
+</blockquote>
+<br></font>
+No problem, thanks for testing it on Mac Wine.<font color=#888888><br>
+<br>
+Satoshi</font><div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Mon, Apr 13, 2009 at 11:11 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>It keeps getting extended all the time.  If it stopped, an attacker would have time to catch up.  Don&#39;t worry, empty blocks aren&#39;t very big.<br>
+<br>
+As you say, it&#39;s the order of events that matters.<div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Mon, Apr 13, 2009 at 11:18 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Oh yes, of course, that's fundamental. Silly me. Thanks for your<br />
+answers. I'd recommend being over-explicit for early versions of the<br />
+software, something like&nbsp; &quot;Global chain is currently %d blocks long&quot;.<br />
+<br />
+I guess the key problem right now is that once you generate coins,<br />
+there's nobody to test it with, even for dummy transactions. Is there<br />
+a plan for a mailing list or some kind of trivial marketplace to give<br />
+people something to do with their newly minted bitcoins?<br />
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Tue, Apr 14, 2009 at 7:41 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>I started implementing a marketplace feature earlier that facilitates offering things for sale and taking orders, it&#39;s only half done though.  A bit like e-bay but without auctions, just &quot;buy now&quot;.  Among other things, it would make it easy for anyone to offer currency exchange.<br>
+<br>
+If you send to 1PhUXucRd8FzQved2KGK3g1eKfTHPG<wbr>jgFu and e-mail me your bitcoin address, or IP if you can accept incoming connections, I&#39;ll send back the same amount +50.<div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Sat, Apr 18, 2009 at 3:08 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Hi Satoshi,<br />
+<br />
+I sent you 32.51 coins, my bitcoin address is 1JuEjh9znXwqsy5RrnKqgzqY4Ldg7r<wbr />nj5n<br />
+<br />
+My IP is currently 84.73.233.199, however, it's a laptop so may or may<br />
+not be online at the time you act on this mail. I suggest using the<br />
+bitcoin address instead. It'd be convenient if the same comment<br />
+functionality was available via indirect transfer. Can the comment be<br />
+encrypted using the public key of the receiver and placed into a<br />
+block?<br />
+<div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Sat, Apr 18, 2009 at 6:16 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>I sent back 32.51 and 50.00.<br>
+<br>
+I badly wanted to find some way to include a comment with indirect transfers, but there just wasn&#39;t a way to do it.  Bitcoin uses EC-DSA, which was essential for making the block chain compact enough to be practical with today&#39;s technology because its signatures are an order of magnitude smaller than RSA.  But EC-DSA can&#39;t encrypt messages like RSA, it can only be used to verify signatures.<div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Sat, Apr 18, 2009 at 9:25 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Thanks. I sent you back 50, so now we're even.<br />
+<br />
+For some reason your transfer to me shows up as &quot;From: unknown&quot; even<br />
+though I added you to my address book.<br />
+<br />
+I have a &quot;Generated (not accepted)&quot; line in my transaction list, it<br />
+seems like an attempt to generate a coin went wrong somehow. Not sure<br />
+what happened here - presumably my node successfully solved a block<br />
+but then I went offline before it was sent to the network?<br />
+<br />
+I suppose for sending metadata with a transaction some other mechanism<br />
+will be needed, for instance, broadcast of encrypted messages<br />
+associated with a transaction that persist for (say) a month, with<br />
+some kind of budget on how much storage a node can use for messages.<br />
+Alternatively, a payee could generate some reference number which is<br />
+of some significance to themselves but otherwise opaque, and give it<br />
+to the payer, thus it does not need to be encrypted and can be put<br />
+into the block directly.<br />
+<div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Sat, Apr 18, 2009 at 10:52 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Got the 50.<br>
+<br>
+Transactions sent to a bitcoin address will always say &quot;from: unknown&quot;.  The transaction only tells who it&#39;s to.  Sending by bitcoin address has a number of problems, but it&#39;s so nice having the fallback option to be able to send to anyone whether they&#39;re online or not.  There are a number of ideas to try to improve things later.  For now, if things work out like the real world where the vast majority of transactions are with merchants, they&#39;ll pretty much always make sure to set up to receive by IP.  The P2P file sharing networks seem fairly successful at getting a large percentage of their users to set up their firewalls to forward a port.<br>
+<br>
+The &quot;Generated (not accepted)&quot; normally happens if two nodes find a block at close to the same time, one of them will not be accepted.  It&#39;s normal and unavoidable.  I plan in v0.1.6 to hide those, since they&#39;re just confusing and annoying and there&#39;s no reason for users to have to see them.  While the network is still small like it is now, if you can&#39;t receive incoming connections you&#39;re at more of a disadvantage because you can&#39;t receive block announcements as directly.<div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Sat, Apr 18, 2009 at 11:23 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Yes, I believe most P2P clients use the UPnP protocol to get routers<br />
+to open up the port automatically. That would probably improve the<br />
+listen rate significantly. I just discovered DMZ wasn't enabled on my<br />
+router, though I thought it was. That's now fixed.<br />
+<br />
+Is there a way to be told of new versions? Does the app auto update<br />
+itself? Again, some kind of mailing list would be excellent.<br />
+<br />
+I was thinking through how a practical micropayment implementation for<br />
+the web might work in the last few days. One key issue is ensuring<br />
+micropayments are fully automatic, yet can't be easily abused to drain<br />
+the users account. I think the right approach would be to allow any<br />
+website that presents an EV SSL cert to automatically request a<br />
+micropayment, by default the browser always accepts as long as the<br />
+charge is &quot;low&quot; and displays a small notification of what has<br />
+occurred. Sites can then show that content requires payment in any way<br />
+that suits their site design. Abusive sites that don't meet some<br />
+simple guidelines (eg, showing unambiguously that clicking a link will<br />
+trigger payment, or taking payment from direct search engine links)<br />
+would simply have their SSL cert blacklisted, much like anti-phishing<br />
+filters work today.<br />
+<br />
+The protocol could be very straightforward and implemented by a<br />
+Firefox extension or an IE BHO. Some static file (eg, a protocol<br />
+buffer) is hosted on the site. It specifies the charge, a transaction<br />
+description, the target IP and a URL for the browser to load after the<br />
+transaction was accepted by the target node, to which the user<br />
+identifier is sent in a URL parameter.&nbsp; The site can then give back a<br />
+cookie and the paywalled content. The entire process is automatic and<br />
+simply results in, say, a little coin animation in the URL bar. Thus<br />
+it's as convenient as regular web browsing. The users software would<br />
+have some limit on what payments are automatically accepted.<br />
+<br />
+The main problem with this approach is that somebody has to decide<br />
+what the user interface guidelines are, then enforce them via<br />
+blacklisting, as well as decide what payment requirements are low<br />
+enough to be automatic vs requiring a user prompt. This introduces a<br />
+trusted authority back into the system. However, it's one that the<br />
+user can choose in an open market.<br />
+<br />
+By the way, if you're not already using protocol buffers for the<br />
+node-to-node traffic, I recommend them. We use them here at Google for<br />
+everything, they solve a lot of versioning problems simply and<br />
+efficiently.<br />
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Sun, Apr 19, 2009 at 2:14 AM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>The list is:<br>
+<a href="mailto:bitcoin-list@lists.sourceforge.net" target="_blank">bitcoin-list@lists.sourceforge<wbr>.net</a><br>
+Subscribe/unsubscribe page:<br>
+<a href="http://lists.sourceforge.net/mailman/listinfo/bitcoin-list" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://lists.sourceforge.net/mailman/listinfo/bitcoin-list&amp;source=gmail&amp;ust=1522947103433000&amp;usg=AFQjCNH-00OCOywgNVsd3TMOEld04sI2Xw">http://lists.sourceforge.net/m<wbr>ailman/listinfo/bitcoin-list</a><br>
+Archives:<br>
+<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=bitcoin-list" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://sourceforge.net/mailarchive/forum.php?forum_name%3Dbitcoin-list&amp;source=gmail&amp;ust=1522947103433000&amp;usg=AFQjCNEdqRvoUK7B3ysMTki3MNmvGpNMuw">http://sourceforge.net/mailarc<wbr>hive/forum.php?forum_name=<wbr>bitcoin-list</a><br>
+<br>
+I&#39;ll always announce new versions there.  Automatic update, or at least notification of new versions, is definitely on the list.  There could potentially be necessary changes in the future where nobody will want to talk to you until you upgrade, and there needs to be code in the older version to convey that to the user.  This is all the harder in the context of not trusting anyone.<br>
+<br>
+Your approach to micropayments sounds right.  At first, it might be a good idea to default to asking permission until the user gets comfortable and is ready to set it to automatic.  The end goal though should get to something like you describe, where it&#39;s similar to using your cell phone without really having to think about the per minute charges.<br>
+<br>
+I looked at Google protocol buffers when they were released last year, but I had already written everything by then.  What I did was something similar to Boost Serialisation.  For this application, where I was parsing messages from strangers who might have extreme incentive to hack the protocol, it was necessary to make it as basic as possible so I could crawl over every line of code to convince myself it was airtight.  It became clear that any unnecessary degrees of freedom in the binary format multiplied the potential angles of attack.  You guys are so right though to standardize across the company on protocol buffers.  I think you&#39;ve got the optimal solution in the general case.</body>

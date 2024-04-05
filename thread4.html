@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd"><html lang="en"><head><meta http-equiv=Content-Type content="text/html; charset=UTF-8"><style type="text/css" nonce="c4w0PsIY4oPTlkziOEVgFLRbv5E">
+body,td,div,p,a,input {font-family: arial, sans-serif;}
+</style><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Gmail - Open sourced my Java SPV impl</title><style type="text/css" nonce="c4w0PsIY4oPTlkziOEVgFLRbv5E">
+body, td {font-size:13px} a:link, a:active {color:#1155CC; text-decoration:none} a:hover {text-decoration:underline; cursor: pointer} a:visited{color:##6611CC} img{border:0px} pre { white-space: pre; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word; max-width: 800px; overflow: auto;} .logo { left: -7px; position: relative; }
+</style><body><div class="bodycontainer"><div class="maincontent"><table width=100% cellpadding=0 cellspacing=0 border=0><tr><td><font size=+1><b>Open sourced my Java SPV impl</b></font><br><font size=-1 color=#777>10 messages</font></td></tr></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Mon, Mar 7, 2011 at 2:13 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Hi Satoshi,<br />
+<br />
+I hope you are doing well. I finally got all the lawyers happy enough<br />
+to release BitCoinJ under the Google name using the Apache 2 license:<br />
+<br />
+<a href="http://www.bitcoin.org/smf/index.php?topic=4236.0" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D4236.0&amp;source=gmail&amp;ust=1522947614105000&amp;usg=AFQjCNF2hEMhdcKB8dUUI9ioFg7ainDbjg" rel="noreferrer" target="_blank">http://www.bitcoin.org/smf/<wbr />index.php?topic=4236.0</a><br />
+<br />
+It's incomplete - notably it doesn't properly handle block chain<br />
+splits yet - but the rest is coming. I put a lot of work into<br />
+documentation and comments so hopefully it'll open up BitCoin to a new<br />
+audience who weren't able to understand/build the current code. Over<br />
+the next month or two I'll be finishing off some of the bigger missing<br />
+pieces for a full client-mode implementation.<br />
+<br />
+I know you are busy right now but I'm hoping you can find time to<br />
+answer a few questions I had.<br />
+<br />
+As part of doing full SPV I'm thinking of adding a getmerklebranch<br />
+message to the protocol. This would return a set of {blockhash,<br />
+branch} pairs given tx hashes, so allowing verification of a broadcast<br />
+transaction before it was incorporated into a block without storing<br />
+the full chain. Does that approach sound good to you?<br />
+<br />
+Also, I've been thinking of exploring different transaction types<br />
+lately, eg by removing the IsStandard() checks for the testnet. It's<br />
+clear you put a lot of thought into transactions beyond simply moving<br />
+coins around up front, but unfortunately none of it was in the paper<br />
+or documented in the code. Escrow, multi-pay and so on are all<br />
+interesting but I was wondering if you could compile a list of ideas<br />
+for things we can do with the scripting language at some point.<br />
+<br />
+Finally, the code that allows for transaction replacement has been<br />
+disabled but the comment doesn't say why. Is this just to reduce the<br />
+attack surface/complexity or is there a deeper reason? I haven't fully<br />
+understood why sequence numbers are a property of the tx inputs rather<br />
+than the tx itself.<br />
+<br />
+Hope you can find the time/energy to rejoin us soon! I don't know if<br />
+you've seen this:<br />
+<br />
+<a href="http://bitcoin.sipa.be/speed-lin.png" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitcoin.sipa.be/speed-lin.png&amp;source=gmail&amp;ust=1522947614105000&amp;usg=AFQjCNEybITHpMHiYKS-tLwPAiNiPXAXGw" rel="noreferrer" target="_blank">http://bitcoin.sipa.be/speed-<wbr />lin.png</a><br />
+<br />
+but it's exciting times for the network!<br />
+<br />
+thanks!<br />
+<font color=#888888>/mike<br />
+</font></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Wed, Mar 9, 2011 at 5:15 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><font color=#550055>
+I hope you are doing well. I finally got all the lawyers happy enough<br>
+to release BitCoinJ under the Google name using the Apache 2 license:<br>
+<br></font><font color=#550055>
+It&#39;s incomplete - notably it doesn&#39;t properly handle block chain<br>
+splits yet - but the rest is coming. I put a lot of work into<br>
+documentation and comments so hopefully it&#39;ll open up BitCoin to a new<br>
+audience who weren&#39;t able to understand/build the current code. Over<br>
+the next month or two I&#39;ll be finishing off some of the bigger missing<br>
+pieces for a full client-mode implementation.<br>
+</font></blockquote>
+<br>
+That&#39;s great news!  Much complexity can be left behind in a clean rewrite with only client requirements, and it opens it to Java developers too.<font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+I know you are busy right now but I&#39;m hoping you can find time to<br>
+answer a few questions I had.<br>
+</blockquote>
+<br></font>
+I&#39;m happy to answer any questions.<font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+As part of doing full SPV I&#39;m thinking of adding a getmerklebranch<br>
+message to the protocol. This would return a set of {blockhash,<br>
+branch} pairs <br>
+</blockquote>
+<br></font>
+That&#39;s a CMerkleTx<font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+given tx hashes, so allowing verification of a broadcast<br>
+transaction before it was incorporated into a block without storing<br>
+the full chain. Does that approach sound good to you?<br>
+</blockquote>
+<br></font>
+I don&#39;t understand.  A merkle branch links a tx back to a block, which only has significance if the block exhibits proof-of-work.  Linking back to an as-yet unsolved block proves nothing.<br>
+<br>
+Network nodes are able to verify 0-conf txes because they have the complete tx index, so they can:<br>
+1) verify signatures against dependencies.<br>
+2) say that they haven&#39;t seen another spend yet, because they know about every tx in existence.<br>
+<br>
+Are you talking about CMerkleTxes for the tx&#39;s dependencies?  That would get part 1), but not part 2).<br>
+<br>
+If you don&#39;t know about all txes in existence, I don&#39;t know how to do 2).  You could only rely on trusting other nodes for that.  That trust can be distributed over multiple nodes.  Nodes only relay transactions they accept as valid.  If you receive inv messages for a tx from all the nodes you&#39;re connected to, they&#39;re attesting that it&#39;s valid and the first spend they saw.<font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+Also, I&#39;ve been thinking of exploring different transaction types<br>
+lately, eg by removing the IsStandard() checks for the testnet. <br>
+</blockquote>
+<br></font>
+Very good idea.  That should definitely be allowed on -testnet.<font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+It&#39;s<br>
+clear you put a lot of thought into transactions beyond simply moving<br>
+coins around up front, but unfortunately none of it was in the paper<br>
+or documented in the code. Escrow, multi-pay and so on are all<br>
+interesting but I was wondering if you could compile a list of ideas<br>
+for things we can do with the scripting language at some point.<br>
+<br>
+Finally, the code that allows for transaction replacement has been<br>
+disabled but the comment doesn&#39;t say why. Is this just to reduce the<br>
+attack surface/complexity or is there a deeper reason?<br>
+</blockquote>
+<br></font>
+Just to reduce surface area.  It wouldn&#39;t help with increasing tx fee. A tx starts being valid at nLockTime.  It wouldn&#39;t work to have a tx that stops being valid at a certain time; once a tx ever becomes valid, it must stay valid permanently.<br>
+<br>
+See these threads:<br>
+<a href="http://www.bitcoin.org/smf/index.php?topic=1786.msg22119#msg22119" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D1786.msg22119%23msg22119&amp;source=gmail&amp;ust=1522947614070000&amp;usg=AFQjCNEC3H3DwCyTKn8RnBl7al926ri3uA">http://www.bitcoin.org/smf/ind<wbr>ex.php?topic=1786.msg22119#msg<wbr>22119</a><br>
+<a href="http://www.bitcoin.org/smf/index.php?topic=2181.msg28729#msg28729" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D2181.msg28729%23msg28729&amp;source=gmail&amp;ust=1522947614070000&amp;usg=AFQjCNFTTbyjUvZ-3j0WACfN77Kxzk3z8g">http://www.bitcoin.org/smf/ind<wbr>ex.php?topic=2181.msg28729#msg<wbr>28729</a><font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+I haven&#39;t fully<br>
+understood why sequence numbers are a property of the tx inputs rather<br>
+than the tx itself.<br>
+</blockquote>
+<br></font>
+It&#39;s for contracts.  An unrecorded open transaction can keep being replaced until nLockTime.  It may contain payments by multiple parties.  Each input owner signs their input.  For a new version to be written, each must sign a higher sequence number (see IsNewerThan).  By signing, an input owner says &quot;I agree to put my money in, if everyone puts their money in and the outputs are this.&quot;  There are other options in SignatureHash such as SIGHASH_SINGLE which means &quot;I agree, as long as this one output (i.e. mine) is what I want, I don&#39;t care what you do with the other outputs.&quot;.  If that&#39;s written with a high nSequenceNumber, the party can bow out of the negotiation except for that one stipulation, or sign SIGHASH_NONE and bow out completely.<br>
+<br>
+The parties could create a pre-agreed default option by creating a higher nSequenceNumber tx using OP_CHECKMULTISIG that requires a subset of parties to sign to complete the signature.  The parties hold this tx in reserve and if need be, pass it around until it has enough signatures.<br>
+<br>
+One use of nLockTime is high frequency trades between a set of parties.  They can keep updating a tx by unanimous agreement.  The party giving money would be the first to sign the next version.  If one party stops agreeing to changes, then the last state will be recorded at nLockTime.  If desired, a default transaction can be prepared after each version so n-1 parties can push an unresponsive party out.  Intermediate transactions do not need to be broadcast.  Only the final outcome gets recorded by the network.  Just before nLockTime, the parties and a few witness nodes broadcast the highest sequence tx they saw.<br>
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Wed, Mar 9, 2011 at 5:39 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><div class="gmail_quote"><font color=#550055><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">If you don&#39;t know about all txes in existence, I don&#39;t know how to do 2).  You could only rely on trusting other nodes for that.  That trust can be distributed over multiple nodes.  Nodes only relay transactions they accept as valid.  If you receive inv messages for a tx from all the nodes you&#39;re connected to, they&#39;re attesting that it&#39;s valid and the first spend they saw.</blockquote>
+<div><br></div></font><div>Good point. I was talking about verifying the inputs yes, but it is indeed pointless unless you hear about all open transactions as well. So being able to fetch a CMerkleTx is not important.</div><font color=#550055><div>
+ </div><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+Just to reduce surface area.  It wouldn&#39;t help with increasing tx fee. A tx starts being valid at nLockTime.  It wouldn&#39;t work to have a tx that stops being valid at a certain time; once a tx ever becomes valid, it must stay valid permanently.<br>
+<br>
+See these threads:<br>
+<a href="http://www.bitcoin.org/smf/index.php?topic=1786.msg22119#msg22119" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D1786.msg22119%23msg22119&amp;source=gmail&amp;ust=1522947614073000&amp;usg=AFQjCNFW7R-tglgIZCRn3HZRB_P6hCprnQ">http://www.bitcoin.org/smf/<wbr>index.php?topic=1786.msg22119#<wbr>msg22119</a><br>
+<a href="http://www.bitcoin.org/smf/index.php?topic=2181.msg28729#msg28729" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D2181.msg28729%23msg28729&amp;source=gmail&amp;ust=1522947614073000&amp;usg=AFQjCNGz6-LthhvtT6klNapoHqtUOPxHpw">http://www.bitcoin.org/smf/<wbr>index.php?topic=2181.msg28729#<wbr>msg28729</a></blockquote><div><br></div></font><div>I see. So right now fees are tricky because you have to decide up front what the fee should be, and if you guess too low, there&#39;s no way to correct the transaction and though the network will eventually forget it, your wallet still records that you spent the coins. This has already started happening.</div>
+<div> </div><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><div class="m_-2779101583253624971im">It&#39;s for contracts.</div></blockquote><div><br></div><div>Ah ha. A whole unexplored area of the system opens up before my eyes :-) The concept of forming distributed contracts and escrow transactions without needing to trust an intermediary is a concept nearly as novel as BitCoin itself, I think.</div>
+<div><br></div><div>I have more questions!</div><div><br></div><div>There&#39;s an unfinished part of the protocol that deals with setting up publisher/subscriber channels for distributed routing via the network. What was the purpose of this? Was the idea to have a p2p market or did it have some kind of lower level function, like perhaps broadcasting expected tx fees?</div>
+<div><br></div><div>There was an interesting discussion of generalizing BitCoin some months ago, but we struggled to fully understand how you planned to achieve it. I think I understood the concept of placing another merkle tree on top of multiple separate chains:</div>
+<div><br></div><div>   <a href="http://www.bitcoin.org/smf/index.php?topic=3414.msg48171#msg48171" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D3414.msg48171%23msg48171&amp;source=gmail&amp;ust=1522947614073000&amp;usg=AFQjCNFRR2668NtbD9pGFtvVquN0NSPiJQ">http://www.bitcoin.org/smf/<wbr>index.php?topic=3414.msg48171#<wbr>msg48171</a></div>
+<div><br></div><div>But I didn&#39;t understand your comment about having 200 bytes for backwards compatibility. Also, I guess this is obvious, but to be super clear - in your idea the alternative chains would share exactly the same format and sets of verification rules as BitCoin (the same script language etc), so all miners can verify all blocks even if they are non-financial in nature? And then the point of having separate block chains is simply to manage storage costs and bandwidth for client-mode implementations?</div>
+<div><br></div><div>Thanks!</div></div>
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Wed, Mar 9, 2011 at 7:39 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><font color=#550055><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+    See these threads:<br>
+    <a href="http://www.bitcoin.org/smf/index.php?topic=1786.msg22119#msg22119" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D1786.msg22119%23msg22119&amp;source=gmail&amp;ust=1522947614076000&amp;usg=AFQjCNGs1lrTOwzL4NhFsoDg_m-Nj1sx0w">http://www.bitcoin.org/smf/ind<wbr>ex.php?topic=1786.msg22119#msg<wbr>22119</a><br>
+    <a href="http://www.bitcoin.org/smf/index.php?topic=2181.msg28729#msg28729" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D2181.msg28729%23msg28729&amp;source=gmail&amp;ust=1522947614076000&amp;usg=AFQjCNGoyUI_C8I7c_BAkghYzWItbzsLtQ">http://www.bitcoin.org/smf/ind<wbr>ex.php?topic=2181.msg28729#msg<wbr>28729</a><br>
+<br>
+I see. So right now fees are tricky because you have to decide up front what the fee should be, and if you guess too low, there&#39;s no way to correct the transaction and though the network will eventually forget it, your wallet still records that you spent the coins. This has already started happening.<br>
+</blockquote>
+<br></font>
+The network won&#39;t forget, and the owner&#39;s client will keep rebroadcasting it.  The overflow transaction was remembered by the network for several months even as the remaining 0.3.8 nodes diminished.<br>
+<br>
+Priority includes age, so as a transaction waits it ages and will eventually have enough priority.<br>
+<br>
+See one of the links above where I contemplate sending an honest double-spend to increase the fee.  It&#39;s a lot of work but could be done.  I don&#39;t think it&#39;s worth it right now.<br>
+<br>
+The current system, where nodes make sure to include enough fee for current conditions and the network makes sure all transactions get processed eventually, works well enough.  Gavin is fixing the oversight where nodes didn&#39;t check the priority of their own transactions when writing them.<br>
+<br>
+Users still worried about processing speed uncertainty should think of it as encouragement to include a fee.<font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+There&#39;s an unfinished part of the protocol that deals with setting up publisher/subscriber channels for distributed routing via the network. What was the purpose of this? Was the idea to have a p2p market or did it have some kind of lower level function, like perhaps broadcasting expected tx fees?<br>
+</blockquote>
+<br></font>
+I was trying to implement an eBay style marketplace built in to the client.  Publish/subscribe would be used for broadcasting product offers and ratings/reviews.  Your reviews would be weighted by the blocks you&#39;ve generated.  I rightly abandoned it in favour of JSON-RPC, so other authors could implement it externally.  The publish/subscribe &quot;meet in the middle&quot; mechanism was an interesting concept, but nothing remains that uses it.<br>
+<br>
+It was part of writing code to explore the most technically demanding use cases and make sure Bitcoin could support everything that might be needed in the future, given the locked-in nature of the rules once the block chain started.<font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+There was an interesting discussion of generalizing BitCoin some months ago, but we struggled to fully understand how you planned to achieve it. I think I understood the concept of placing another merkle tree on top of multiple separate chains:<br>
+<br>
+   <a href="http://www.bitcoin.org/smf/index.php?topic=3414.msg48171#msg48171" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D3414.msg48171%23msg48171&amp;source=gmail&amp;ust=1522947614076000&amp;usg=AFQjCNGOufTCGdnwK2ajBF4PssglLruH_Q">http://www.bitcoin.org/smf/in<wbr>dex.php?topic=3414.msg48171#ms<wbr>g48171</a><br>
+<br>
+But I didn&#39;t understand your comment about having 200 bytes for backwards compatibility. Also, I guess this is obvious, but to be super clear - in your idea the alternative chains would share exactly the same format and sets of verification rules as BitCoin (the same script language etc), so all miners can verify all blocks even if they are non-financial in nature? And then the point of having separate block chains is simply to manage storage costs and bandwidth for client-mode implementations?<br>
+</blockquote>
+<br></font>
+No, other chains do not follow Bitcoin&#39;s rules.  They are completely independent chains.  They share nothing except the miners.  The other network&#39;s definition of proof-of-work is to make a solved (according to their own chain&#39;s difficulty) Bitcoin-format block that has a hash of their own block in it.  They don&#39;t care if the Bitcoin block is valid or used by Bitcoin, but it allows miners to work both chains at once.<br>
+<br>
+Procedure to hash a BitDNS block:<br>
+ - hash the BitDNS block<br>
+ - construct a Bitcoin block<br>
+ - insert the BitDNS hash into the scriptSig of tx 0 in the Bitcoin block<br>
+ - hash the Bitcoin block<br>
+<br>
+The BitDNS block is valid if that hash is below BitDNS&#39;s target.<br>
+<br>
+The BitDNS block needs to have with it about 200 bytes of data needed to reconstruct the Bitcoin block used in the hash:<br>
+ - the Bitcoin block header<br>
+ - the merkle branch to tx 0<br>
+ - tx 0  (btw, tx 0&#39;s prev hash is always 0 so leaving that out saves 32 bytes)<br>
+<br>
+Note that it doesn&#39;t matter if the fodder &quot;Bitcoin block&quot; was actually valid in the Bitcoin chain, though it could have been.  To BitDNS, it&#39;s just a bunch of salt necessary to do its convoluted hash calculation. If a miner is only mining for BitDNS and doesn&#39;t care about Bitcoin, it would use a blank Bitcoin block of all zeroes (except the nonce).<br>
+<br>
+To further expand the idea for extensibility, consider instead of putting the BitDNS block hash in tx 0, you put the root of a merkle tree that includes BitDNS.  This is the merkle tree that is conceptually at the top.<br>
+<br>
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Wed, Mar 9, 2011 at 7:52 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Thanks again.<div><br></div><div>Hal speculated that you intended to stash the new merkle root in the tx0 scriptSig. Good to know at least he had the right idea :-)<br></div><div><br></div>
+</font></div></table></table></body>

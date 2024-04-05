@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd"><html lang="en"><head><meta http-equiv=Content-Type content="text/html; charset=UTF-8"><style type="text/css" nonce="rRvlonDSeSa3nxHhXIac49CHslA">
+body,td,div,p,a,input {font-family: arial, sans-serif;}
+</style><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Gmail - Holding coins in an unspendable state for a rolling time window</title><style type="text/css" nonce="rRvlonDSeSa3nxHhXIac49CHslA">
+body, td {font-size:13px} a:link, a:active {color:#1155CC; text-decoration:none} a:hover {text-decoration:underline; cursor: pointer} a:visited{color:##6611CC} img{border:0px} pre { white-space: pre; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word; max-width: 800px; overflow: auto;} .logo { left: -7px; position: relative; }
+</style><body><div class="bodycontainer"><div class="maincontent"><table width=100% cellpadding=0 cellspacing=0 border=0><tr><td><font size=+1><b>Holding coins in an unspendable state for a rolling time window</b></font><br><font size=-1 color=#777>6 messages</font></td></tr></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Mon, Apr 18, 2011 at 11:14 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Hello Satoshi,<br />
+<br />
+I hope this mail finds you well. Recently I've been thinking about how<br />
+BitCoin can help handle&nbsp;internet abuse and would appreciate your<br />
+thoughts.<br />
+<br />
+My &quot;day job&quot; is on the Google abuse team. We make extensive use of<br />
+phone verification to control outbound spam from our network. Facebook<br />
+and Craigslist do the same. Phone verification works well because<br />
+phone numbers are something most people have access to at least one or<br />
+two of, but rarely more. Yet it has significant downsides - it's<br />
+expensive (for us), flaky, some people don't like the privacy<br />
+implications, and some spam is profitable enough that buying lots of<br />
+SIM cards is worth it.<br />
+<br />
+It would be ideal if BitCoins could be put up as collateral against an<br />
+account. The amount put up would help determine the limits the system<br />
+placed on your behavior (eg how much mail you can send), in an<br />
+anonymous and private way. But how to implement this?<br />
+<br />
+Burning coins forever is easy, just set the only output to be &lt;pubkey&gt;<br />
+OP_FALSE. Now you can sign some server-provided challenge with that<br />
+key and prove you did indeed burn those coins. A key would only be<br />
+usable with one account so spammers cannot simply put up a huge<br />
+collateral and then resell signatures generated with that key. If the<br />
+account was found to be abused it'd be terminated like today, and the<br />
+coins would be &quot;gone&quot;.<br />
+<br />
+But people do come and go from these big networks and the thought of<br />
+losing the coins if you quit Google to run your own mail is<br />
+unappealing. It would be ideal if coins could be locked up for a<br />
+period of time such that they cannot be spent until time X, where X<br />
+can be constantly pushed into the future if the owner desires it but<br />
+otherwise the coins eventually become spendable again. To verify your<br />
+Google account, you would take some amount of coins (say 10) and set<br />
+it up so you cannot spend them for 6 months.<br />
+<br />
+The script language has no concept of time. OP_BLOCKNUMBER was ruled<br />
+out because re-orgs could potentially invalidate entire chains of<br />
+transactions. But is an OP_DAY feasible? I'm thinking of an opcode<br />
+that returns the timestamp from the block header, but rounded to the<br />
+nearest day to handle the natural clock drift seen in the block chain.<br />
+If it could work then a TX that ties up coins until past a certain day<br />
+is easy to construct. Updating it so the deadline is constantly moving<br />
+is harder. A simple brute force solution is to require the user to put<br />
+up 2x the coins such that at the point the first tx is about to expire<br />
+and become spendable again, the second tx is created. In this way you<br />
+always have at least one tx of sufficiently distant deadline to act as<br />
+collateral. But this is inelegant. A better way would be to introduce<br />
+a new rule allowing a tx to connect to such an output before the<br />
+deadline has passed, as long as the output of that tx is once again a<br />
+deadlined output of the same form. However this is less general than<br />
+the scripting language so is also somewhat inelegant.<br />
+<br />
+What do you think?<br />
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Wed, Apr 20, 2011 at 11:39 AM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>If the script language is not stateless, if it has access to any outside information that changes or varies between nodes, attackers can use it to fork the chain.  The only exception is if it is always false before a certain time and permanently true after, which is implemented with nLockTime.<br>
+<br>
+Since Google is trusted, couldn&#39;t users pay a token deposit to Google and Google pays them back when they close the account?<br>
+<br>
+To answer your question though, yes it can be done without using trust:<br>
+<br>
+Tx 1 from User pays to a script that requires the signature of both Google and User to spend.<br>
+<br>
+Tx 2 (the contract) spends Tx 1 and pays it to User.  nLockTime is the time to release the money.<br>
+<br>
+Steps:<br>
+1) Google gives User a pubkey to use in creating Tx 1.<br>
+2) User privately creates Tx 1, does not broadcast it yet.<br>
+3) User gives the hash of Tx 1 to Google.<br>
+4) Google signs its part of Tx 2, with nLockTime set, and gives it to User.<br>
+5) User broadcasts Tx 1.<br>
+6) User signs his half of Tx 2 and broadcasts it.<br>
+<br>
+With these steps, the user already has Google&#39;s signed half of Tx 2 in hand before he broadcasts Tx 1, so he is assured of what bargain he is signing the money to.<br>
+<br>
+This is the general pattern for safely signing contracts.  Tx 2 is prepared first so the parties know what they&#39;re paying into.  Tx 1 is broadcast to lock up the money and assign it to Tx 2.  In other words, all parties assign their money to a pool that is controlled by the unanimous agreement of the group, but first the group has already signed agreement for the default action to take with the money, or partially signed multiple available options that a party can complete by adding the last signature.<br>
+<br>
+By mutual agreement, the parties can always write another version of Tx 2 that releases the money immediately.<div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Wed, Apr 20, 2011 at 1:55 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Thanks, that&#39;s helpful. I&#39;m understanding contracts better now.<div><br></div><div>So the issue with having an OP_TIME/OP_BLOCKNUMBER opcode is not only that the results can change after a re-org (you said that previously), but also that people could use it to produce transactions that cease to be valid entirely after a certain time and cause a fork. Kind of obvious in hindsight.<br>
+<div class="gmail_quote"><font color=#550055><br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">Since Google is trusted, couldn&#39;t users pay a token deposit to Google and Google pays them back when they close the account?<br>
+</blockquote><div><br></div></font><div>Google and trust is a complicated issue. Lots of people use our services despite having little trust in us. Some people start out trusting us but then read (often sensationalist or wrong) stories in the media that change their minds, and so on. This is one of the problems we have with phone verification ... a few people don&#39;t want to give us their phone number.</div>
+<div><br></div><div>For this case it&#39;d probably be OK because trust around data privacy is different to trust around obeying contracts. I&#39;m sure nobody would doubt that Google will pay them back - I bet we&#39;d have an even better credit rating than the US Government in that sense :-) But we have quite a high rate of false positives with our verifications and some people would suspect we were accidentally verifying users in order to accumulate big piles of coins with which to earn interest. I&#39;ve seen much sillier conspiracy theories gain traction.</div>
+<div><br></div><div>Besides, avoiding the need to trust big, complex institutions is much more BitCoin-ish. And I correctly suspected there was a way to do it I didn&#39;t understand yet so it&#39;s a good chance to learn more about BitCoin.</div><font color=#550055>
+<div> </div><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">To answer your question though, yes it can be done without using trust</blockquote><div><br></div></font><div>If I wrote a wiki page on how to build contracts with BitCoin, would you mind reviewing it?</div>
+<div><br></div><div>I&#39;m thinking it might be a good idea to re-enable transaction replacement soon because as the network grows, it will become harder and harder to upgrade. In one sense this is good as it makes it hard to change the fundamental rules of the system. On the other hand, we risk having a protocol which has many unused features because they aren&#39;t widely supported enough. HTTP suffered this fate with many of its verbs as well as features like pipelining.</div>
+<div><br></div><div>Did you have any list of tasks for re-activation, some kind of audit or finishing off some code?</div><div><br></div><div>I had a few other things on my mind (as always). One is, are you planning on rejoining the community at some point (eg for code reviews), or is your plan to permanently step back from the limelight? One reason I&#39;m peppering you with questions is I worry that much of BitCoins potential lies in careful use of currently inactive features, but there&#39;s little guidance on how to do it. And frankly, I don&#39;t think I&#39;m smart enough to figure it all out on my own. Maybe theymos is, he seems to understand it well. But if one day you leave entirely, parts of the protocol might fall into disuse, which would be a shame.</div>
+<div><br></div><div>Another is the economics of mining after the transition to a fully fee based system. Right now difficulty is roughly a function of the USD/BTC exchange rate and per-block inflation. When mining reward is set by the market, it might be possible for a &quot;Tragedy of the commons&quot; to occur in which everyone benefits from a high difficulty, but nobody specifically wants to pay fees to get it. Besides, valuing difficulty is quite hard as you never know what the capabilities of attackers are until it&#39;s too late. Would it be possible for fees to trend towards zero over time as some miner is always willing to accept cheaper transactions and as miners drop out, the difficulty adjusts so the delays never get too bad to tolerate?</div>
+<div><br></div><div>As always thanks for your insights.</div></div></div>
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Sat, Apr 23, 2011 at 3:40 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><font color=#550055><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+I had a few other things on my mind (as always). One is, are you planning on rejoining the community at some point (eg for code reviews), or is your plan to permanently step back from the limelight?<br>
+</blockquote>
+<br></font>
+I&#39;ve moved on to other things.  It&#39;s in good hands with Gavin and everyone.<br>
+<br>
+I do hope your BitcoinJ continues to be developed into an alternative client.  It gives Java devs something to work on, and it&#39;s easier with a simpler foundation that doesn&#39;t have to do everything.  It&#39;ll get critical mass when impatient new users can get started using it while the other one is still downloading the block chain.<br>
+</font></div></table></table></body>

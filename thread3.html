@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd"><html lang="en"><head><meta http-equiv=Content-Type content="text/html; charset=UTF-8"><style type="text/css" nonce="sP7Acxnzeg1BJrMLGyZYi1Giguo">
+body,td,div,p,a,input {font-family: arial, sans-serif;}
+</style><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Gmail - More BitCoin questions</title><style type="text/css" nonce="sP7Acxnzeg1BJrMLGyZYi1Giguo">
+body, td {font-size:13px} a:link, a:active {color:#1155CC; text-decoration:none} a:hover {text-decoration:underline; cursor: pointer} a:visited{color:##6611CC} img{border:0px} pre { white-space: pre; white-space: -moz-pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word; max-width: 800px; overflow: auto;} .logo { left: -7px; position: relative; }
+</style><body><div class="bodycontainer"><div class="maincontent"><table width=100% cellpadding=0 cellspacing=0 border=0><tr><td><font size=+1><b>More BitCoin questions</b></font><br><font size=-1 color=#777>11 messages</font></td></tr></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Mon, Dec 27, 2010 at 8:21 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Happy Christmas Satoshi, assuming you celebrate it wherever you are in<br />
+the world :-)<br />
+<br />
+I have been working on a Java implementation of the simplified payment<br />
+verification, with an eye to building a client that runs on Android<br />
+phones. So I've been thinking a lot about storage requirements and the<br />
+scalability of BitCoin, which led to some questions that the paper did<br />
+not answer (maybe there could be a new version of the paper at some<br />
+point, as I think aspects of it are now out of date).<br />
+<br />
+Specifically, BitCoin has a variety of magic numbers and neither the<br />
+code nor the paper explain where they came from. For example, the fact<br />
+that inflation ceases when 21 million coins have been issued. This<br />
+number must have been arrived at somehow, but I can't see how.<br />
+<br />
+Another is the 10 minute block target. I understand this was chosen to<br />
+allow transactions to propagate through the network. However existing<br />
+large P2P networks like BGP can propagate new data worldwide in &lt;1<br />
+minute.<br />
+<br />
+The final number I'm interested in is the 500kb limit on block sizes.<br />
+According to Wikipedia, Visa alone processed 62 billion transactions<br />
+in 2009. Dividing through we get an average of 2000 transactions per<br />
+second, so peak rate is probably around double that at 4000<br />
+transactions/sec. With a ten minute block target, at peak a block<br />
+might need to contain 2.4 million transactions, which just won't fit<br />
+into 500kb. Is this 500kb a temporary limitation that will be slowly<br />
+removed over time from the official client or something more<br />
+fundamental?<br />
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Wed, Dec 29, 2010 at 10:42 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><font color=#550055><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+I have been working on a Java implementation of the simplified payment<br>
+verification, with an eye to building a client that runs on Android<br>
+phones. So I&#39;ve been thinking a lot about storage requirements and the<br>
+scalability of BitCoin, which led to some questions that the paper did<br>
+not answer (maybe there could be a new version of the paper at some<br>
+point, as I think aspects of it are now out of date).<br>
+</blockquote>
+<br></font>
+The simplified payment verification in the paper imagined you would receive transactions directly, as with sending to IP address which nobody uses, or a node would index all transactions by public key and you could download them like downloading mail from a mail server.<br>
+<br>
+Instead, I think client-only nodes should receive full blocks so they can scan them for their own transactions.  They don&#39;t need to store them or index them.  For the initial download, they only need to download headers, since there couldn&#39;t be any payments before the first time the program was run (a header download command was added in 0.3.18).  From then on, they download full blocks (but only store the headers).<br>
+<br>
+Code for client-only mode is mostly implemented.  There&#39;s a feature branch on github with it, also I&#39;m attaching the patch to this message.<br>
+<br>
+Here&#39;s some more about it:<br>
+<br>
+&quot;Here&#39;s my client-mode implementation so far.  Client-only mode only records block headers and doesn&#39;t use the tx index.  It can&#39;t generate, but it can still send and receive transactions.  It&#39;s not fully finished for use by end-users, but it doesn&#39;t matter because it&#39;s a complete no-op if fClient is not enabled.  At this point it&#39;s mainly documentation showing the cut-lines for client-only re-implementers.<br>
+<br>
+With fClient=true, I&#39;ve only tested the header-only initial download.<br>
+<br>
+A little background.  CBlockIndex contains all the information of the block header, so to operate with headers only, I just maintain the CBlockIndex structure as usual.  The nFile/nBlockPos are null, since the full block is not recorded on disk.<br>
+<br>
+The code to gracefully switch between client-mode on/off without deleting blk*.dat in between is not implemented yet.  It would mostly be a matter of having non-client LoadBlockIndex ignore block index entries with null block pos.  That would make it re-download those as full blocks.  Switching back to client-mode is no problem, it doesn&#39;t mind if the full blocks are there.<br>
+<br>
+If the initial block download becomes too long, we&#39;ll want client mode as an option so new users can get running quickly.  With graceful switch-off of client mode, they can later turn off client mode and have it download the full blocks if they want to start generating.  They should rather just use a getwork miner to join a pool instead.<br>
+<br>
+Client-only re-implementations would not need to implement EvalScript at all, or at most just implement the five ops used by the standard transaction templates.&quot;<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+Specifically, BitCoin has a variety of magic numbers and neither the<br>
+code nor the paper explain where they came from. For example, the fact<br>
+that inflation ceases when 21 million coins have been issued. This<br>
+number must have been arrived at somehow, but I can&#39;t see how.<br>
+</blockquote>
+<br></font>
+Educated guess, and the maths work out to round numbers.  I wanted something that would be not too low if it was very popular and not too high if it wasn&#39;t.<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+Another is the 10 minute block target. I understand this was chosen to<br>
+allow transactions to propagate through the network. However existing<br>
+large P2P networks like BGP can propagate new data worldwide in &lt;1<br>
+minute.<br>
+</blockquote>
+<br></font>
+If propagation is 1 minute, then 10 minutes was a good guess.  Then nodes are only losing 10% of their work (1 minute/10 minutes).  If the CPU time wasted by latency was a more significant share, there may be weaknesses I haven&#39;t thought of.  An attacker would not be affected by latency, since he&#39;s chaining his own blocks, so he would have an advantage.  The chain would temporarily fork more often due to latency.<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+The final number I&#39;m interested in is the 500kb limit on block sizes.<br>
+According to Wikipedia, Visa alone processed 62 billion transactions<br>
+in 2009. Dividing through we get an average of 2000 transactions per<br>
+second, so peak rate is probably around double that at 4000<br>
+transactions/sec. With a ten minute block target, at peak a block<br>
+might need to contain 2.4 million transactions, which just won&#39;t fit<br>
+into 500kb. Is this 500kb a temporary limitation that will be slowly<br>
+removed over time from the official client or something more<br>
+fundamental?<br>
+</blockquote>
+<br></font>
+A higher limit can be phased in once we have actual use closer to the limit and make sure it&#39;s working OK.<br>
+<br>
+Eventually when we have client-only implementations, the block chain size won&#39;t matter much.  Until then, while all users still have to download the entire block chain to start, it&#39;s nice if we can keep it down to a reasonable size.<br>
+<br>
+With very high transaction volume, network nodes would consolidate and there would be more pooled mining and GPU farms, and users would run client-only.  With dev work on optimising and parallelising, it can keep scaling up.<br>
+<br>
+Whatever the current capacity of the software is, it automatically grows at the rate of Moore&#39;s Law, about 60% per year.<br>
+<br>
+<br/>diff -u old\db.cpp new\db.cpp<br />
+--- old\db.cpp&nbsp; Sat Dec 18 18:35:59 2010<br />
++++ new\db.cpp&nbsp; Sun Dec 19 20:53:59 2010<br />
+@@ -464,29 +464,32 @@<br />
+&nbsp; &nbsp; &nbsp;ReadBestInvalidWork(<wbr />bnBestInvalidWork);<br />
+<br />
+&nbsp; &nbsp; &nbsp;// Verify blocks in the best chain<br />
+-&nbsp; &nbsp; CBlockIndex* pindexFork = NULL;<br />
+-&nbsp; &nbsp; for (CBlockIndex* pindex = pindexBest; pindex &amp;&amp; pindex-&gt;pprev; pindex = pindex-&gt;pprev)<br />
++&nbsp; &nbsp; if (!fClient)<br />
+&nbsp; &nbsp; &nbsp;{<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; if (pindex-&gt;nHeight &lt; nBestHeight-2500 &amp;&amp; !mapArgs.count(&quot;-checkblocks&quot;)<wbr />)<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; CBlock block;<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; if (!block.ReadFromDisk(pindex))<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return error(&quot;LoadBlockIndex() : block.ReadFromDisk failed&quot;);<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; if (!block.CheckBlock())<br />
++&nbsp; &nbsp; &nbsp; &nbsp; CBlockIndex* pindexFork = NULL;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; for (CBlockIndex* pindex = pindexBest; pindex &amp;&amp; pindex-&gt;pprev; pindex = pindex-&gt;pprev)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; printf(&quot;LoadBlockIndex() : *** found bad block at %d, hash=%s\n&quot;, pindex-&gt;nHeight, pindex-&gt;GetBlockHash().<wbr />ToString().c_str());<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pindexFork = pindex-&gt;pprev;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (pindex-&gt;nHeight &lt; nBestHeight-2500 &amp;&amp; !mapArgs.count(&quot;-checkblocks&quot;)<wbr />)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CBlock block;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (!block.ReadFromDisk(pindex))<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return error(&quot;LoadBlockIndex() : block.ReadFromDisk failed&quot;);<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (!block.CheckBlock())<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; printf(&quot;LoadBlockIndex() : *** found bad block at %d, hash=%s\n&quot;, pindex-&gt;nHeight, pindex-&gt;GetBlockHash().<wbr />ToString().c_str());<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pindexFork = pindex-&gt;pprev;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
++&nbsp; &nbsp; &nbsp; &nbsp; }<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (pindexFork)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; {<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Reorg back to the fork<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; printf(&quot;LoadBlockIndex() : *** moving best chain pointer back to block %d\n&quot;, pindexFork-&gt;nHeight);<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CBlock block;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (!block.ReadFromDisk(<wbr />pindexFork))<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return error(&quot;LoadBlockIndex() : block.ReadFromDisk failed&quot;);<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CTxDB txdb;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; block.SetBestChain(txdb, pindexFork);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />
+-&nbsp; &nbsp; }<br />
+-&nbsp; &nbsp; if (pindexFork)<br />
+-&nbsp; &nbsp; {<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; // Reorg back to the fork<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; printf(&quot;LoadBlockIndex() : *** moving best chain pointer back to block %d\n&quot;, pindexFork-&gt;nHeight);<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; CBlock block;<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; if (!block.ReadFromDisk(<wbr />pindexFork))<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return error(&quot;LoadBlockIndex() : block.ReadFromDisk failed&quot;);<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; CTxDB txdb;<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; block.SetBestChain(txdb, pindexFork);<br />
+&nbsp; &nbsp; &nbsp;}<br />
+<br />
+&nbsp; &nbsp; &nbsp;return true;<br />
+diff -u old\main.cpp new\main.cpp<br />
+--- old\main.cpp&nbsp; &nbsp; &nbsp; &nbsp; Sat Dec 18 18:35:59 2010<br />
++++ new\main.cpp&nbsp; &nbsp; &nbsp; &nbsp; Sun Dec 19 20:53:59 2010<br />
+@@ -637,6 +637,9 @@<br />
+&nbsp; &nbsp; &nbsp;if (!IsStandard())<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;AcceptToMemoryPool() : nonstandard transaction type&quot;);<br />
+<br />
++&nbsp; &nbsp; if (fClient)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; return true;<br />
++<br />
+&nbsp; &nbsp; &nbsp;// Do we already have it?<br />
+&nbsp; &nbsp; &nbsp;uint256 hash = GetHash();<br />
+&nbsp; &nbsp; &nbsp;CRITICAL_BLOCK(cs_<wbr />mapTransactions)<br />
+@@ -1308,23 +1311,26 @@<br />
+&nbsp; &nbsp; &nbsp;if (!CheckBlock())<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return false;<br />
+<br />
+-&nbsp; &nbsp; //// issue here: it doesn't know the version<br />
+-&nbsp; &nbsp; unsigned int nTxPos = pindex-&gt;nBlockPos + ::GetSerializeSize(CBlock(), SER_DISK) - 1 + GetSizeOfCompactSize(vtx.size(<wbr />));<br />
+-<br />
+-&nbsp; &nbsp; map&lt;uint256, CTxIndex&gt; mapUnused;<br />
+-&nbsp; &nbsp; int64 nFees = 0;<br />
+-&nbsp; &nbsp; foreach(CTransaction&amp; tx, vtx)<br />
++&nbsp; &nbsp; if (!fClient)<br />
+&nbsp; &nbsp; &nbsp;{<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; CDiskTxPos posThisTx(pindex-&gt;nFile, pindex-&gt;nBlockPos, nTxPos);<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; nTxPos += ::GetSerializeSize(tx, SER_DISK);<br />
++&nbsp; &nbsp; &nbsp; &nbsp; //// issue here: it doesn't know the version<br />
++&nbsp; &nbsp; &nbsp; &nbsp; unsigned int nTxPos = pindex-&gt;nBlockPos + ::GetSerializeSize(CBlock(), SER_DISK) - 1 + GetSizeOfCompactSize(vtx.size(<wbr />));<br />
++<br />
++&nbsp; &nbsp; &nbsp; &nbsp; map&lt;uint256, CTxIndex&gt; mapUnused;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; int64 nFees = 0;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; foreach(CTransaction&amp; tx, vtx)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; {<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CDiskTxPos posThisTx(pindex-&gt;nFile, pindex-&gt;nBlockPos, nTxPos);<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; nTxPos += ::GetSerializeSize(tx, SER_DISK);<br />
+<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; if (!tx.ConnectInputs(txdb, mapUnused, posThisTx, pindex, nFees, true, false))<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (!tx.ConnectInputs(txdb, mapUnused, posThisTx, pindex, nFees, true, false))<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return false;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; }<br />
++<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (vtx[0].GetValueOut() &gt; GetBlockValue(pindex-&gt;nHeight, nFees))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return false;<br />
+&nbsp; &nbsp; &nbsp;}<br />
+<br />
+-&nbsp; &nbsp; if (vtx[0].GetValueOut() &gt; GetBlockValue(pindex-&gt;nHeight, nFees))<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; return false;<br />
+-<br />
+&nbsp; &nbsp; &nbsp;// Update block index on disk without changing it in memory.<br />
+&nbsp; &nbsp; &nbsp;// The memory index structure will be changed after the db commits.<br />
+&nbsp; &nbsp; &nbsp;if (pindex-&gt;pprev)<br />
+@@ -1378,7 +1384,7 @@<br />
+&nbsp; &nbsp; &nbsp;foreach(CBlockIndex* pindex, vDisconnect)<br />
+&nbsp; &nbsp; &nbsp;{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CBlock block;<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; if (!block.ReadFromDisk(pindex))<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (!block.ReadFromDisk(pindex, !fClient))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;Reorganize() : ReadFromDisk for disconnect failed&quot;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (!block.DisconnectBlock(txdb, pindex))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;Reorganize() : DisconnectBlock failed&quot;);<br />
+@@ -1395,7 +1401,7 @@<br />
+&nbsp; &nbsp; &nbsp;{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CBlockIndex* pindex = vConnect[i];<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CBlock block;<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; if (!block.ReadFromDisk(pindex))<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (!block.ReadFromDisk(pindex, !fClient))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;Reorganize() : ReadFromDisk for connect failed&quot;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (!block.ConnectBlock(txdb, pindex))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br />
+@@ -1526,7 +1532,7 @@<br />
+<br />
+&nbsp; &nbsp; &nbsp;txdb.Close();<br />
+<br />
+-&nbsp; &nbsp; if (pindexNew == pindexBest)<br />
++&nbsp; &nbsp; if (!fClient &amp;&amp; pindexNew == pindexBest)<br />
+&nbsp; &nbsp; &nbsp;{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Notify UI to display prev block's coinbase if it was ours<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;static uint256 hashPrevBestCoinBase;<br />
+@@ -1547,10 +1553,6 @@<br />
+&nbsp; &nbsp; &nbsp;// These are checks that are independent of context<br />
+&nbsp; &nbsp; &nbsp;// that can be verified before saving an orphan block.<br />
+<br />
+-&nbsp; &nbsp; // Size limits<br />
+-&nbsp; &nbsp; if (vtx.empty() || vtx.size() &gt; MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK) &gt; MAX_BLOCK_SIZE)<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; return error(&quot;CheckBlock() : size limits failed&quot;);<br />
+-<br />
+&nbsp; &nbsp; &nbsp;// Check proof of work matches claimed amount<br />
+&nbsp; &nbsp; &nbsp;if (!CheckProofOfWork(GetHash(), nBits))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;CheckBlock() : proof of work failed&quot;);<br />
+@@ -1559,6 +1561,13 @@<br />
+&nbsp; &nbsp; &nbsp;if (GetBlockTime() &gt; GetAdjustedTime() + 2 * 60 * 60)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;CheckBlock() : block timestamp too far in the future&quot;);<br />
+<br />
++&nbsp; &nbsp; if (fClient &amp;&amp; vtx.empty())<br />
++&nbsp; &nbsp; &nbsp; &nbsp; return true;<br />
++<br />
++&nbsp; &nbsp; // Size limits<br />
++&nbsp; &nbsp; if (vtx.empty() || vtx.size() &gt; MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK) &gt; MAX_BLOCK_SIZE)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; return error(&quot;CheckBlock() : size limits failed&quot;);<br />
++<br />
+&nbsp; &nbsp; &nbsp;// First transaction must be coinbase, the rest must not be<br />
+&nbsp; &nbsp; &nbsp;if (vtx.empty() || !vtx[0].IsCoinBase())<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;CheckBlock() : first tx is not coinbase&quot;);<br />
+@@ -1623,13 +1632,14 @@<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;AcceptBlock() : out of disk space&quot;);<br />
+&nbsp; &nbsp; &nbsp;unsigned int nFile = -1;<br />
+&nbsp; &nbsp; &nbsp;unsigned int nBlockPos = 0;<br />
+-&nbsp; &nbsp; if (!WriteToDisk(nFile, nBlockPos))<br />
+-&nbsp; &nbsp; &nbsp; &nbsp; return error(&quot;AcceptBlock() : WriteToDisk failed&quot;);<br />
++&nbsp; &nbsp; if (!fClient)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (!WriteToDisk(nFile, nBlockPos))<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return error(&quot;AcceptBlock() : WriteToDisk failed&quot;);<br />
+&nbsp; &nbsp; &nbsp;if (!AddToBlockIndex(nFile, nBlockPos))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;AcceptBlock() : AddToBlockIndex failed&quot;);<br />
+<br />
+&nbsp; &nbsp; &nbsp;// Relay inventory, but don't relay old inventory during initial block download<br />
+-&nbsp; &nbsp; if (hashBestChain == hash)<br />
++&nbsp; &nbsp; if (!fClient &amp;&amp; hashBestChain == hash)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CRITICAL_BLOCK(cs_vNodes)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;foreach(CNode* pnode, vNodes)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (nBestHeight &gt; (pnode-&gt;nStartingHeight != -1 ? pnode-&gt;nStartingHeight - 2000 : 55000))<br />
+@@ -2405,6 +2415,8 @@<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (fShutdown)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return true;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (fClient &amp;&amp; inv.type == MSG_TX)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; continue;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pfrom-&gt;AddInventoryKnown(inv);<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bool fAlreadyHave = AlreadyHave(txdb, inv);<br />
+@@ -2441,6 +2453,9 @@<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (inv.type == MSG_BLOCK)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (fClient)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return true;<br />
++<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Send block from disk<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;map&lt;uint256, CBlockIndex*&gt;::iterator mi = mapBlockIndex.find(inv.hash);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (mi != mapBlockIndex.end())<br />
+@@ -2486,6 +2501,8 @@<br />
+<br />
+&nbsp; &nbsp; &nbsp;else if (strCommand == &quot;getblocks&quot;)<br />
+&nbsp; &nbsp; &nbsp;{<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (fClient)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return true;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CBlockLocator locator;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;uint256 hashStop;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;vRecv &gt;&gt; locator &gt;&gt; hashStop;<br />
+@@ -2556,6 +2573,8 @@<br />
+<br />
+&nbsp; &nbsp; &nbsp;else if (strCommand == &quot;tx&quot;)<br />
+&nbsp; &nbsp; &nbsp;{<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (fClient)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return true;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;vector&lt;uint256&gt; vWorkQueue;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CDataStream vMsg(vRecv);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CTransaction tx;<br />
+@@ -2620,6 +2639,33 @@<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (ProcessBlock(pfrom, &amp;block))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mapAlreadyAskedFor.erase(inv);<br />
++&nbsp; &nbsp; }<br />
++<br />
++<br />
++&nbsp; &nbsp; else if (strCommand == &quot;headers&quot;)<br />
++&nbsp; &nbsp; {<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (!fClient)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return true;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; vector&lt;CBlock&gt; vHeaders;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; vRecv &gt;&gt; vHeaders;<br />
++<br />
++&nbsp; &nbsp; &nbsp; &nbsp; uint256 hashBestBefore = hashBestChain;<br />
++&nbsp; &nbsp; &nbsp; &nbsp; foreach(CBlock&amp; block, vHeaders)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; {<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; block.vtx.clear();<br />
++<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; printf(&quot;received header %s\n&quot;, block.GetHash().ToString().<wbr />substr(0,20).c_str());<br />
++<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CInv inv(MSG_BLOCK, block.GetHash());<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pfrom-&gt;AddInventoryKnown(inv);<br />
++<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (ProcessBlock(pfrom, &amp;block))<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mapAlreadyAskedFor.erase(inv);<br />
++&nbsp; &nbsp; &nbsp; &nbsp; }<br />
++<br />
++&nbsp; &nbsp; &nbsp; &nbsp; // Request next batch<br />
++&nbsp; &nbsp; &nbsp; &nbsp; if (hashBestChain != hashBestBefore)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pfrom-&gt;PushGetBlocks(<wbr />pindexBest, uint256(0));<br />
+&nbsp; &nbsp; &nbsp;}<br />
+<br />
+<br />
+diff -u old\main.h new\main.h<br />
+--- old\main.h&nbsp; Sat Dec 18 18:35:59 2010<br />
++++ new\main.h&nbsp; Sun Dec 19 20:53:59 2010<br />
+@@ -619,6 +619,8 @@<br />
+<br />
+&nbsp; &nbsp; &nbsp;bool ReadFromDisk(CDiskTxPos pos, FILE** pfileRet=NULL)<br />
+&nbsp; &nbsp; &nbsp;{<br />
++&nbsp; &nbsp; &nbsp; &nbsp; assert(!fClient);<br />
++<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CAutoFile filein = OpenBlockFile(pos.nFile, 0, pfileRet ? &quot;rb+&quot; : &quot;rb&quot;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (!filein)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return error(&quot;CTransaction::<wbr />ReadFromDisk() : OpenBlockFile failed&quot;);<br />
+@@ -1174,6 +1176,7 @@<br />
+<br />
+&nbsp; &nbsp; &nbsp;bool ReadFromDisk(unsigned int nFile, unsigned int nBlockPos, bool fReadTransactions=true)<br />
+&nbsp; &nbsp; &nbsp;{<br />
++&nbsp; &nbsp; &nbsp; &nbsp; assert(!fClient);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetNull();<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Open history file to read<br />
+@@ -1231,7 +1234,7 @@<br />
+<br />
+<br />
+&nbsp;//<br />
+-// The block chain is a tree shaped structure starting with the<br />
++// The block index is a tree shaped structure starting with the<br />
+&nbsp;// genesis block at the root, with each block potentially having multiple<br />
+&nbsp;// candidates to be the next block.&nbsp; pprev and pnext link a path through the<br />
+&nbsp;// main/longest chain.&nbsp; A blockindex may have multiple pprev pointing back<br />
+diff -u old\net.cpp new\net.cpp<br />
+--- old\net.cpp Wed Dec 15 22:33:09 2010<br />
++++ new\net.cpp Sun Dec 19 21:51:27 2010<br />
+@@ -51,7 +51,15 @@<br />
+&nbsp; &nbsp; &nbsp;pindexLastGetBlocksBegin = pindexBegin;<br />
+&nbsp; &nbsp; &nbsp;hashLastGetBlocksEnd = hashEnd;<br />
+<br />
+-&nbsp; &nbsp; PushMessage(&quot;getblocks&quot;, CBlockLocator(pindexBegin), hashEnd);<br />
++&nbsp; &nbsp; /// Client todo: After the initial block header download, start using getblocks<br />
++&nbsp; &nbsp; /// here instead of getheaders.&nbsp; For blocks generated after the first time the<br />
++&nbsp; &nbsp; /// program was run, we need to download full blocks to watch for received<br />
++&nbsp; &nbsp; /// transactions in them.&nbsp; We're able to download headers only for blocks<br />
++&nbsp; &nbsp; /// generated before we ever ran because they can't contain txes for us.<br />
++&nbsp; &nbsp; if (::fClient)<br />
++&nbsp; &nbsp; &nbsp; &nbsp; PushMessage(&quot;getheaders&quot;, CBlockLocator(pindexBegin), hashEnd);<br />
++&nbsp; &nbsp; else<br />
++&nbsp; &nbsp; &nbsp; &nbsp; PushMessage(&quot;getblocks&quot;, CBlockLocator(pindexBegin), hashEnd);<br />
+&nbsp;}<br />
+<br />
+<br />
+<br/></font></div><br clear=all><div style="width:50%;border-top:2px #AAAAAA solid"></div><table class=att cellspacing=0 cellpadding=5 border=0><tr><td><table cellspacing=0 cellpadding=0><tr><td><a target=_blank href="?ui=2&amp;ik=ee2dd21bb5&amp;view=att&amp;th=12d34154f69f6dc7&amp;attid=0.1&amp;disp=inline&amp;safe=1&amp;zw"><img width=16 height=16 src="https://ssl.gstatic.com/ui/v1/icons/mail/images/txt.gif"></a></td><td width=7></td><td><b>client-mode.patch</b><br/>11K </td></tr></table></td></tr></table></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Thu, Dec 30, 2010 at 12:27 AM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Thanks for the info.<br />
+<br />
+I reached the same conclusions about client only nodes and this is<br />
+what I've been implementing. I'm nearly there ..... I have block chain<br />
+download, parsing and verification of the blocks/transactions done,<br />
+with creation of spend transactions almost done.<br />
+<br />
+v1 will basically do as you propose, with the possible optimization of<br />
+storing only the blocks needed to form the block locator (with the<br />
+exponential thinning). As Android provides local storage that is<br />
+private to the app, you don't need to store the entire block chain to<br />
+be able to accept new blocks ... just enough to ensure you can always<br />
+stay on the longest chain.<br />
+<br />
+By the way, your code is easy to read and has been an invaluable<br />
+reference. So thanks for that.<br />
+<br />
+In v2 I'm thinking of showing transactions before they are integrated<br />
+into the block chain by running secure/locked down relay nodes that<br />
+send messages to the phones when a transaction is accepted into the<br />
+memory pool. Android provides a secure, low power back channel to<br />
+every phone. Messages are stored server side if the device is offline<br />
+and apps are automatically started on the phone to handle incoming<br />
+messages.<br />
+<br />
+So as long as the relay nodes are unhacked, this system should give<br />
+enough trust that low value transactions can be shown in the UI<br />
+immediately. It introduces some centralization/single points of<br />
+failure, but if the relay mechanism dies or is hacked, the damage only<br />
+lasts for 10 minutes until the new blocks are downloaded.<br />
+<font color=#550055><br />
+&gt; Client-only re-implementations would not need to implement EvalScript at<br />
+&gt; all, or at most just implement the five ops used by the standard transaction<br />
+&gt; templates.&quot;<br />
+<br />
+</font>Indeed, there's no point in client-only implementations implementing<br />
+EvalScript because they can't verify transactions aren't being double<br />
+spent without storing and indexing the entire block chain. My code<br />
+parses the scripts and then relies on them having a standard<br />
+structure, but doesn't actually run them.<br />
+<font color=#550055><br />
+&gt; Educated guess, and the maths work out to round numbers. &nbsp;I wanted something<br />
+&gt; that would be not too low if it was very popular and not too high if it<br />
+&gt; wasn't.<br />
+<br />
+</font>It'd be interesting to see the working for this. In some sense the<br />
+number of coins is arbitrary as the nanocoin representation means the<br />
+issuance is so huge it's practically infinite.<br />
+<font color=#550055><br />
+&gt; A higher limit can be phased in once we have actual use closer to the limit<br />
+&gt; and make sure it's working OK.<br />
+<br />
+</font>It'd be worth implementing some kind of more robust auto update<br />
+mechanism, or a schedule for the phase in of this, if only because<br />
+when people evaluate &quot;is BitCoin worth my time and effort&quot; a solid<br />
+plan for scaling up is good to have written down.<br />
+<br />
+I'm not worried about the physical capabilities of the hardware, but<br />
+more protocol ossification as the app is reimplemented and nodes which<br />
+don't auto-update themselves increase in number. Client only<br />
+reimplementations pose no problems of course, but other systems like<br />
+SMTP have proven impossible to globally upgrade despite having<br />
+extension mechanisms built in .... just too many implementations and<br />
+too many installations.<br />
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Fri, Jan 7, 2011 at 1:00 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><font color=#550055><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+I reached the same conclusions about client only nodes and this is<br>
+what I&#39;ve been implementing. I&#39;m nearly there ..... I have block chain<br>
+download, parsing and verification of the blocks/transactions done,<br>
+with creation of spend transactions almost done.<br>
+</blockquote>
+<br></font>
+That&#39;s great!  The first client-only implementation will really start to move things to the next step.  Is it going to be open source, or Google proprietary?<br>
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Fri, Jan 7, 2011 at 1:24 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><font color=#550055>&gt; That's great! &nbsp;The first client-only implementation will really start to<br />
+&gt; move things to the next step. &nbsp;Is it going to be open source, or Google<br />
+&gt; proprietary?<br />
+<br />
+</font>Open source. It has to be - I am developing it as a personal project<br />
+in my spare time and Googles policy is that this is only allowed if<br />
+you open source the results. But I would have done that anyway.<br />
+<br />
+I managed to spend my first coins on the testnet with my app a few<br />
+days ago, hopefully will get another chance to make progress this<br />
+weekend. Probably will have something to show publically sometime in<br />
+Feb, touch wood.<br />
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Mon, Jan 10, 2011 at 4:34 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+Open source. <br>
+</blockquote>
+<br>
+Perfect.  Once your code shows how to simplify it down, other authors can follow your lead.  Client is a less daunting challenge than full implementation.  If it&#39;s within reach of more developers, they&#39;ll come up with more polished UI and other things I didn&#39;t think of.  I expect the original software will become the industrial old thing used by GPU farms and pool servers.<br>
+<br>
+BTW, later a good feature for a client version is to keep your private keys encrypted and you give your password each time you send.<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+I managed to spend my first coins on the testnet with my app a few<br>
+days ago, hopefully will get another chance to make progress this<br>
+weekend. Probably will have something to show publically sometime in<br>
+Feb, touch wood.<br>
+</blockquote>
+<br></font>
+Great, keep me updated.<font color=#550055><br>
+<br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+I wanted something<br>
+that would be not too low if it was very popular and not too high if it<br>
+wasn&#39;t.<br>
+</blockquote>
+ It&#39;d be interesting to see the working for this. In some sense the<br>
+number of coins is arbitrary as the nanocoin representation means the<br>
+issuance is so huge it&#39;s practically infinite.<br>
+</blockquote>
+<br></font>
+It works out to an even 10 minutes per block:<br>
+21000000 / (50 BTC * 24hrs * 365days * 4years * 2) = 5.99 blocks/hour<br>
+<br>
+I fudged it to 364.58333 days/year.  The halving of 50 BTC to 25 BTC is after 210000 blocks or around 3.9954 years, which is approximate anyway based on the retargeting mechanism&#39;s best effort.<br>
+<br>
+I thought about 100 BTC and 42 million, but 42 million seemed high.<br>
+<br>
+I wanted typical amounts to be in a familiar range.  If you&#39;re tossing around 100000 units, it doesn&#39;t feel scarce.  The brain is better able to work with numbers from 0.01 to 1000.<br>
+<br>
+If it gets really big, the decimal can move two places and cents become the new coins.<br>
+<br>
+</font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Mike Hearn </b>&lt;mike@plan99.net&gt;</font></td><td align=right><font size=-1>Mon, Jan 10, 2011 at 4:48 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Satoshi Nakamoto &lt;satoshin@gmx.com&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Ah, of course, that makes sense. <div><br></div><div>By the way, if you didn&#39;t see it already, there&#39;s a discussion on the security of secp256k1 on the forum:</div><div><br></div><div><a href="http://www.bitcoin.org/smf/index.php?topic=2699.0" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D2699.0&amp;source=gmail&amp;ust=1522947491607000&amp;usg=AFQjCNHG9zPdHPDnmyPvUXpThNlyT8B5rA">http://www.bitcoin.org/smf/<wbr>index.php?topic=2699.0</a></div>
+<div><br></div><div>Hal (i presume this is Hal Finney) seems to think the curve is at higher risk of attack than random curves. I guess you chose secp256k1 for the mentioned performance improvement?</div><div style='padding:5 0'><font size=1 color=#888888>[Quoted text hidden]</font></div></font></div></table></table><hr><table width=100% cellpadding=0 cellspacing=0 border=0 class="message"><tr><td><font size=-1><b>Satoshi Nakamoto </b>&lt;satoshin@gmx.com&gt;</font></td><td align=right><font size=-1>Mon, Jan 10, 2011 at 8:47 PM</font><tr><td colspan=2 style="padding-bottom: 4px;"><font size=-1 class="recipient"><div>To: Mike Hearn &lt;mike@plan99.net&gt;</div></font><tr><td colspan=2><table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1><font color=#550055><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+By the way, if you didn&#39;t see it already, there&#39;s a discussion on the security of secp256k1 on the forum:<br>
+<br>
+<a href="http://www.bitcoin.org/smf/index.php?topic=2699.0" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://www.bitcoin.org/smf/index.php?topic%3D2699.0&amp;source=gmail&amp;ust=1522947491609000&amp;usg=AFQjCNFPbCfeNiLhifqBvZH_c0eWGkLuGw">http://www.bitcoin.org/smf/ind<wbr>ex.php?topic=2699.0</a><br>
+<br>
+Hal (i presume this is Hal Finney) <br>
+</blockquote>
+<br></font>
+Yes, it&#39;s him.  He was supportive on the Cryptography list and ran one of the first nodes.<font color=#550055><br>
+<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+seems to think the curve is at higher risk of attack than random curves. I guess you chose secp256k1 for the mentioned performance improvement?<br>
+</blockquote>
+<br></font>
+I must admit, this project was 2 years of development before release, and I could only spend so much time on each of the many issues.  I found guidance on the recommended size for SHA and RSA, but nothing on ECDSA which was relatively new.  I took the recommended key size for RSA and converted to equivalent key size for ECDSA, but then increased it so the whole app could be said to be 256-bit security.  I didn&#39;t find anything to recommend a curve type so I just... picked one.  Hopefully there is enough key size to make up for any deficiency.<br>
+<br>
+At the time, I was concerned whether the bandwidth and storage sizes would be practical even with ECDSA.  RSA&#39;s huge keys were out of the question.  Storage and bandwidth seemed tighter back then.  I felt the size was either only just becoming practical, or would be soon.  When I presented it, I was surprised nobody else was concerned about size, though I was also surprised how many issues they argued, and more surprised that every single one was something I had thought of and solved.<br>
+<br>
+As it turns out, ECDSA verification time may be the greater bottleneck.  (In my tests, OpenSSL was taking 3.5ms per ECDSA verify, or about 285 verifies per second)  Client versions bypass the problem.<br>
+<br>
+As things have evolved, the number of people who need to run full nodes is less than I originally imagined.  The network would be fine with a small number of nodes if processing load becomes heavy.<br></body>
