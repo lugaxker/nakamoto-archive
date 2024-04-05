@@ -1,0 +1,89 @@
+Emails between Satoshi Nakamoto and Wei Dai (2008-2009)
+
+Retrieved from https://gwern.net/doc/bitcoin/2008-nakamoto
+
+---
+
+From: "Satoshi Nakamoto" <satoshi@anonymousspeech.com>
+Sent: Friday, August 22, 2008 4:38 PM
+To: "Wei Dai" <weidai@ibiblio.org>
+Cc: "Satoshi Nakamoto" <satoshi@anonymousspeech.com>
+Subject: Citation of your b-money page
+
+I was very interested to read your b-money page.  I'm getting ready to
+release a paper that expands on your ideas into a complete working system.
+Adam Back (hashcash.org) noticed the similarities and pointed me to your
+site.
+
+I need to find out the year of publication of your b-money page for the
+citation in my paper.  It'll look like:
+[1] W. Dai, "b-money," http://www.weidai.com/bmoney.txt, (2006?).
+
+You can download a pre-release draft at
+http://www.upload.ae/file/6157/ecash-pdf.html  Feel free to forward it to
+anyone else you think would be interested.
+
+Title: Electronic Cash Without a Trusted Third Party
+
+Abstract: A purely peer-to-peer version of electronic cash would allow
+online payments to be sent directly from one party to another without the
+burdens of going through a financial institution.  Digital signatures
+offer part of the solution, but the main benefits are lost if a trusted
+party is still required to prevent double-spending.  We propose a solution
+to the double-spending problem using a peer-to-peer network.  The network
+timestamps transactions by hashing them into an ongoing chain of
+hash-based proof-of-work, forming a record that cannot be changed without
+redoing the proof-of-work.  The longest chain not only serves as proof of
+the sequence of events witnessed, but proof that it came from the largest
+pool of CPU power.  As long as honest nodes control the most CPU power on
+the network, they can generate the longest chain and outpace any
+attackers.  The network itself requires minimal structure.  Messages are
+broadcasted on a best effort basis, and nodes can leave and rejoin the
+network at will, accepting the longest proof-of-work chain as proof of
+what happened while they were gone.
+
+Satoshi
+
+---
+
+Hi Satoshi. b-money was announced on the cypherpunks mailing list in 1998.
+Here's the archived post:
+https://cypherpunks.venona.com/date/1998/11/msg00941.html
+
+There are some discussions of it at
+https://cypherpunks.venona.com/date/1998/12/msg00194.html.
+
+Thanks for letting me know about your paper. I'll take a look at it and let
+you know if I have any comments or questions.
+
+---
+
+From: Satoshi Nakamoto
+Sent: Saturday, January 10, 2009 11:17 AM
+To: weidai@weidai.com
+Subject: Re: Citation of your b-money page
+
+I wanted to let you know, I just released the full implementation of the
+paper I sent you a few months ago, Bitcoin v0.1.  Details, download and
+screenshots are at www.bitcoin.org
+
+I think it achieves nearly all the goals you set out to solve in your
+b-money paper.
+
+The system is entirely decentralized, without any server or trusted
+parties.  The network infrastructure can support a full range of escrow
+transactions and contracts, but for now the focus is on the basics of
+money and transactions.
+
+There was a discussion of the design on the Cryptography mailing list.
+Hal Finney gave a good high-level overview:
+| One thing I might mention is that in many ways bitcoin is two independent
+| ideas: a way of solving the kinds of problems James lists here, of
+| creating a globally consistent but decentralized database; and then using
+| it for a system similar to Wei Dai's b-money (which is referenced in the
+| paper) but transaction/coin based rather than account based. Solving the
+| global, massively decentralized database problem is arguably the harder
+| part, as James emphasizes. The use of proof-of-work as a tool for this
+| purpose is a novel idea well worth further review IMO.
+
+Satoshi
