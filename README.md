@@ -54,6 +54,7 @@ A new compilation could be made with the source files listed below.
 | sourceforge-bitcoin-code-revisions.tgz | 2009-08-30 | Commits from SourceForge Bitcoin software repository | 90b8d1e8e6a765b105da9532d137f53286a18495bfda48718094b6415bd2a56a | Retrieved from https://sourceforge.net/projects/bitcoin/ |
 | sourceforge-home-text-2.txt | 2009-09-16 | Descriptive text of the SourceForge project on Sept. 2009 | 048573dc782fb3d93ab19af6e0b7247aa9a62af5a0c247480fe8a4cccf6382bb | Retrieved from https://web.archive.org/web/20090916201827/https://sourceforge.net/projects/bitcoin/ |
 | bitcoin-forum-satoshi-nakamoto.tgz | 2009-11-22 | Bitcoin forum posts, with context | 154b9ae63708edd9d996d57cd3a28db3c699392444dfea70f61d8b961d713cc3 | https://viresinnumeris.fr/bitcoin-forum-satoshi-nakamoto.tgz |
+| bitcoin530.png | 2010-02-24 | Second logo | ce271869e6f41179a5db12e4f978dae4bd98c9d88a5d4434511a35ff6bdf6413 | https://commons.wikimedia.org/wiki/File:Bitcoin.png https://bitcointalk.org/index.php?topic=64.msg504#msg504 |
 | thread3.html | 2010-12-27 | Emails to Mike Hearn (3/5) | 4875cb18a4f76dc47a97fb467944017bddc4a1131ad29a8ad43279abdc88468b | https://plan99.net/~mike/satoshi-emails/thread3.html |
 | thread4.html | 2011-03-07 | Emails to Mike Hearn (4/5) | 20d3291430c217afc4578bd404992039c709162a5dd4ecc5661a673690580198 | https://plan99.net/~mike/satoshi-emails/thread4.html |
 | thread5.html | 2011-04-18 | Emails to Mike Hearn (5/5) | e687652a9e0a2b5ece55400342198b95444d24f0515f25e42432d4adb7c9d6f0 | https://plan99.net/~mike/satoshi-emails/thread5.html |
