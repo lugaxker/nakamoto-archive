@@ -6,7 +6,7 @@ Complete archive of the writings of productions of Satoshi Nakamoto, Bitcoin cre
 
 Compilations of this content have been made over the years:
 
-- [Nakamoto Institute](https://satoshi.nakamotoinstitute.org/) (2014)
+- [Satoshi Nakamoto Institute website](https://satoshi.nakamotoinstitute.org/) (2014)
 - [The Book of Satoshi](https://www.bookofsatoshi.com/) (2014)
 - [Kicking the Hornet's Nest](https://ipfs.io/ipfs/QmUhY2xKDLQSnxoePE1R94NdDTjuNuYgKv2cXUdW9gxGQL) (2019)
 - [Deryk Makgill's archive](https://www.bitcoin.com/satoshi-archive/) (2021)
