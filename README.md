@@ -13,7 +13,7 @@ Compilations of this content have been made over the years:
 
 A new compilation could be made with the source files listed below.
 
-## Source material
+## Source material (./src/)
 
 | Name                      | Date (UTC) | Description                 | Hash (SHA256)                                                    | Source(s)                             |
 |---------------------------|------------|-----------------------------|------------------------------------------------------------------|---------------------------------------|
