@@ -24,6 +24,6 @@ Bitcoin would be right up your alley.  Its advantage is that it's P2P. There isn
 I'm sure you've already found the FAQ and Forum at bitcoin.org.
 
 The logo is here:
-http://www.bitcoin.o....php?topic=64.0
+http://www.bitcoin.org/smf/index.php?topic=64.0
 
 Was there anything particular you were interested in?
