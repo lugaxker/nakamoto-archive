@@ -1,0 +1,541 @@
+BITCOIN FORUM
+
+0005-00028: welcome
+0006-00029: coinbase maturity
+0006-00031: coinbase maturity
+0007-00030: TOR and address privacy
+0007-00032: TOR and address privacy
+0007-00264: TOR and address privacy
+0007-00324: TOR and address privacy, MITM attack
+0008-00033: TOR and address privacy
+0008-00034: TOR and address privacy
+0009-00036: Linux version
+0009-00037: Linux version
+0010-00038: v0.2 development
+0012-00041: connection, SSL, UPnP, cli, daemon
+0012-00045: mobile, API, initial block download, SVN, Linux
+0012-00050: Linux, mining, initial block download
+0012-00054: GPU mining
+0012-00055: PPC, endianness, autoconf, front/back end
+0012-00062: GUI shutoff, natural deflation
+0012-00067: wxWidgets bug on Mac OS X
+0012-00070: wxWidgets bug on Linux, debug.log
+0012-00077: FreeBSD
+0012-00079: Linux
+0013-00046: various answers
+0013-00049: send-to-IP and addresses
+0016-00073: v0.2.0
+0017-00085: confirmations
+0018-00097: support for 64-bit systems
+0018-00174: support for 64-bit systems
+0021-00112: number of connections
+0022-00113: TOR/I2P seeds
+0022-00223: TOR/I2P seeds
+0025-00159: message in transaction
+0025-00173: bitcoin payment, RSA vs ECDSA
+0027-00156: using wallet on multiple machines, resync functionality
+0027-00170: wallet resync functionality
+0027-00219: wallet resync functionality
+0028-00160: confirmations
+0029-00172: bitcoin address
+0030-01169: message in transaction, RSA vs ECDSA
+0034-00222: port forwarding, send-to-IP, address checksum, coin loss and natural deflation
+0034-00250: feature against coin loss infeasible
+0035-00220: Windows virus protection
+0043-00249: PoW difficulty increasing
+0043-00346: PoW difficulty increasing
+0043-00376: block time, network latency
+0043-00388: latency and generation success, testing before original release
+0043-00510: PoW difficulty increasing
+0043-00540: difficulty ajustment
+0043-01323: hashmeter, extra nonce
+0043-01648: hashmeter
+0043-01669: hashmeter
+0043-03488: expected generation rate, PoW difficulty increasing
+0043-03526: PoW difficulty increasing, expected generation rate
+0043-03537: coinbase maturity
+0043-03565: difficulty adjustment
+0043-05990: PoW difficulty increasing
+0044-00267: coin divisibility
+0045-00278: high-res bitcoin logo
+0045-00507: GPL avoidance
+0046-00284: connect to IP command
+0047-00279: client and website translations
+0047-00283: client and website translations, JSON-RPC, CLI
+0047-00389: client translations rev
+0048-00316: odd generation, transaction fee, huge transaction
+0048-00327: odd generation, free transactions, fees for huge transactions
+0048-00329: odd generation, transaction fee as the main compensation for nodes, "I'm sure that in 20 years there will either be very large transaction volume or no volume"
+0049-00315: deb package, 32-bit linux binary
+0049-00322: 32-bit linux binary
+0049-00326: compilation on Ubuntu Karmic 64-bit
+0054-00360: multiple bitcoin machines, NAT
+0054-01135: port forwarding
+0055-00360: URI scheme, QR-code
+0055-01132: URI scheme, magnet
+0055-01596: URI scheme with IP/address
+0055-04008: cross-domain POST request in Javascript
+0057-00415: cost follow price
+0058-00413: number of connections, PoW difficulty increasing
+0059-00414: static IPs, test donations
+0060-00434: client tabs
+0060-00434: address book, Mac OS X
+0060-00446: GDM, TTY1-8
+0061-00433: unlucky generation, PoW difficulty increasing
+0062-00443: address collision, entropy
+0062-00453: single-use address, v0.2.5
+0063-00452: v0.2.6, daemon, CLI, JSON-RPC
+0063-00482: GTK
+0063-00509: daemon memory usage
+0063-00539: bitcoind with wxBase, memory usage
+0063-00555: wxBase daemon bug
+0063-00562: daemon with wxWidgets
+0063-00633: debugged memory usage
+0064-00504: new icons/logo
+0064-00521: larger size logo later
+0064-00561: logo contrast change
+0064-00566: no SVG logo
+0064-00588: full size logo
+0064-21766: contributions welcome, public domain
+0065-00571: unicode in wxWidgets
+0069-00614: money transfer regulations, escrow, e-bay
+0072-00717: multithreading
+0072-02886: multithreading
+0083-00719: bitcoin payment for file hosting
+0083-00731: bitcoin payment for proxy service
+0083-00809: bitcoin payment for proxy service
+0083-00810: bitcoin payment for file hosting, Mihalism Multi Host
+0084-00729: IRC bootstrapping, static IPs
+0084-01579: addr message, IRC bootstrapping
+0084-01619: IRC bootstrapping, hardcoded list of seed nodes
+0084-01781: IRC bootstrapping, laszlo IRC server
+0084-02010: IRC bootstrapping
+0087-00807: comparison between Liberty Reserve/Pecunix and Bitcoin
+0088-00806: bitcoin.com, BitCoin Ltd.
+0101-01134: addresses kept forever, number of addresses
+0112-01143: build for automated payments
+0125-01149: signature verification, initial block download, pruning, SPV, custodial services, vekja, mybitcoin
+0128-03605: multithreading bug on Linux, v0.3.1
+0129-01131: disable send-to-IP with proxy
+0130-01130: address generation not linked to the network
+0135-01133: EC key bug, OpenSSL
+0141-01260: transaction fee alert
+0145-01256: number of confirmations
+0149-01646: GUI in Ubuntu 10.04 new theme
+0149-01653: Minimize to tray for Ubuntu 10.04
+0149-01668: Ubuntu 10.04, feature changes in post-0.3 to do list
+0151-01259: client translations
+0151-01269: Italian translation of the client
+0151-01324: Dutch translation of the client
+0151-01600: German translation of the client
+0151-03238: French translation of the client
+0151-03242: client translations, new .po file
+0151-03247: main page download links, client translations
+0151-03257: Spanish and French translations of the client
+0151-15176: Russian translation of the client
+0151-15360: Russian translation of the client, poedit
+0151-15660: Russian translation of the client, poedit
+0151-17965: Russian translation of the client, poedit
+0153-01258: initial block download
+0154-01254: chain analysis, new address after each payment
+0157-01252: CLI JSON-RPC programming, automated change of address, number of confirmations
+0158-01322: send-to-IP, send-to-hostname, eavesdropping, man-in-the-middle, URI scheme with IP/address, SSL
+0158-01582: send-to-hostname for online merchants, SSL, preference for addresses
+0163-01590: Linux build
+0165-01595: incentive to include transactions
+0171-01815: Linux build, prebuilt bitcoind
+0177-01814: custodial services, mobile app, QR-code for address, web interface to server
+0179-01588: data leaked in a transaction, decentralization of node list
+0183-01620: Gavin Andresen's bitcoin faucet, donation address
+0184-01609: new binary release, v0.3, 64-bit, client translations
+0191-01585: breaking of SHA-256
+0195-01611: design, script, rejection of a second Bitcoin implementation
+0195-01617: rejection of a second Bitcoin implementation, arbitrary data and transactions fees, designing in 2007
+0197-01656: CPU mining rate
+0198-01647: coin loss as a donation to everyone, infeasability of address collision
+0199-01654: v0.3 prerelease
+0199-01670: v0.3 prerelease, listtransactions RPC method
+0199-01671: v0.3 release candidate 1
+0199-01675: v0.2.10 laszlo build bug
+0199-01677: v0.2.10 laszlo build bug
+0199-01679: v0.2.10 laszlo build bug, Berkeley DB, v0.3
+0199-01686: Laszlo's mining optimization in v0.3
+0199-01748: v0.3 release candidate 1 for Linux
+0199-01760: v0.3 Linux testing
+0199-01769: Linux vs Windows generation performance
+0199-01787: v0.3 release candidate 2, laszlo's IRC server
+0199-01800: v0.3 status bar
+0199-01806: change from v0.3 to v1.3, removing of "beta", RC3?
+0199-01834: MinGW
+0199-01926: Visual C++ compilation
+0199-01927: revert to RC2 (RC4), v0.3 released on website
+0199-01947: first Mac release
+0199-02006: v0.3 official release announcement
+0202-01838: major meltdown, breaking of SHA-256
+0202-02133: major meltdown, breaking of ECDSA
+0206-01816: Bitcoin Faucet IP differentiation, captcha
+0215-01779: IRC bootstrapping
+0215-01797: IRC bootstrapping
+0217-01803: change from v0.3 to v1.3, removing of "beta"
+0217-01827: change from v0.3 to v1.3
+0217-01928: change back to v0.3, RC4
+0218-01828: fully headless client
+0223-01924: limiting connections, UPnP, BitTorrent
+0223-01929: limiting connections, reduction from 15 to 8
+0234-01976: slashdot submission, anonymity, government unreachability, stability with respect to energy
+0238-02004: v0.3 official release announcement, cryptocurrency, no trusted central server, arbitrary inflation, JSON-RPC, daemon, tabs, faster hashing, hashmeter, Mac OS X version, client translations
+0240-02132: test network
+0241-02071: network segmentation
+0242-02078: cornering the market
+0246-02068: Windows v0.3 non-latin characters bug
+0246-02077: Windows v0.3 non-latin characters bug
+0246-02092: Windows v0.3 non-latin characters bug
+0286-02947: scalability, SPV, lighweight clients
+0287-07524: lack of current practicability for micropayments, smaller payments than with existing payment methods
+0287-07687: client-only mode, practicability for micropayments in 5-10 years, DoS attack, transaction fee, hashing rate
+0287-07694: micropayments, pay-per-1000-pages, pay-per-day
+0287-07696: payment for transaction broadcast, transaction fee for the transaction fee's transaction
+0287-07710: specific destination address for transaction fee, BitTorrent-like transaction broadcast
+0287-08810: keeping the blockchain small as long as possible, client-only mode
+0291-02913: Microsoft Security Essentials Live Protection blocking communication with the network
+0295-03350: Bitcoin Faucet amount lowering
+0296-03495: Fedora, v0.3.1
+0298-02885: FreeBSD, wxWidgets 2.9 needed
+0299-02908: multithreading bug on Linux, v0.3.1, minimize to tray on Ubuntu
+0299-03008: minimize to tray option
+0299-03309: v0.3.1 release candidate
+0303-03499: transaction rebroadcasting
+0305-02895: Live Protection problem
+0318-02903: Ubuntu 10.04, system language
+0323-02867: Live Protection problem
+0325-02935: randomness of mining, OpenSSL RNG
+0326-03157: Linux build
+0327-02871: CPU usage
+0327-03162: CPU usage
+0338-06307: bitcoin.org on Spamhaus Public Block List, "WTF"
+0342-04508: Wikipedia article, b-money, bit gold
+0343-02880: Bitcoin Generation Calculator
+0360-03520: breaking of SHA-256
+0364-03559: integration for bitcoin payments, automated change of address
+0373-03150: Windows v0.3 non-latin characters bug
+0378-03540: trademark, bitcoin.com, bitcoin twitter account
+0383-03198: v0.3.1, bugfix maintenance release
+0383-03205: v0.3.1 release candidate, backup before updating
+0383-03221: v0.3.1 release candidate, laggy system because of mining
+0383-03295: v0.3.1 release candidate, Windows CPU usage
+0383-03305: v0.3.1 RC2, Linux minimize on close
+0383-03306: v0.3.1 release candidate, duplicated listreceivedbyaddress and getreceivedbyaddress commands
+0383-03319: v0.3.1 release candidate, Startup folder, OpenOffice
+0383-03339: v0.3.1 release candidate, minimize to tray undocumented switch on Linux
+0383-03505: v0.3.1 release candidate, dependencies, static library build
+0383-03536: gateway nodes between Windows and Linux
+0383-03590: v0.3.1, RC1 for Windows, RC2 for Linux
+0391-03308: icon bug on Vista, display color depth selection
+0391-03323: icon bug, 120DPI mode
+0391-03362: icon bug, 120DPI mode, no icon larger than 20x20
+0393-03510: source code documentation, Doxygen, external API help
+0393-03534: source code documentation, command line options, JSON-RPC API
+0393-03828: source code documentation, intentionally undocumented commands
+0393-03999: source code documentation, intentionally undocumented commands
+0397-03524: expected bitcoins per day feature, PoW difficulty quadrupling
+0400-03492: pindexFirst assertion bug, blk*.dat files
+0400-03823: pindexFirst assertion bug, coin disappearance during resync
+0403-03545: dollar cost of bitmining chart, PoW difficulty quadrupling
+0417-03579: sample account system for custodial services, getnewaddress, vekja.net
+0419-03840: number of connections, v0.3.2
+0423-03819: snack machine, transaction speed, 0-conf
+0423-03867: snack machine, 0-conf good-enough security
+0431-03773: Nenolod, v0.3.2, checkpoint security safeguard
+0431-04073: threshold amount to pay a transaction fee
+0432-03769: rounding error, getinfo
+0434-03770: wallet.dat backup security, address generation, pre-made addresses
+0437-03807: v0.3.2, checkpoint security safeguard, Spanish and French translations of the client
+0437-03825: v0.3.2, checkpoint, initial block download
+0437-04037: v0.3.2 change list, fixed bugs
+0441-04095: block time statistics, mining variance
+0453-04068: MS Visual C++ build, OpenSSL SHA-256 performance
+0454-07328: noWx patch, v0.3.7, SVN rev 112
+0458-05772: checksums for releases, pgp signatures, Satoshi PGP public key
+0461-04059: JSON-RPC password
+0461-04169: JSON-RPC password, keyfile
+0461-04268: JSON-RPC password, JSON settings file (bitcoin.conf), HTTP basic authentication
+0461-04577: JSON-RPC password, settings file format, Boost library
+0461-04646: JSON-RPC password, settings file format, YAML vs. JSON
+0461-04758: JSON-RPC password, settings file key/value separator, settings.conf vs bitcoin.conf
+0461-04775: JSON-RPC password, key/value separator in Boost, HTTP basic authentication
+0461-04928: JSON-RPC password, warning if user/password not set
+0461-05337: JSON-RPC password, HTTP basic authentication description for the wiki
+0461-05338: JSON-RPC password, v0.3.2.5
+0461-05383: JSON-RPC password, authentication disabled by default, Fortran
+0461-05767: JSON-RPC password, long password bug, SVN rev 110
+0461-05769: JSON-RPC password, authentication in PHP
+0461-05771: JSON-RPC password, long password bug simpler fix, SVN rev 111
+0479-04263: server/daemon vulnerability, web browsers
+0479-05432: server/daemon vulnerability, fixed by JSON-RPC HTTP authentication feature, v0.3.3
+0501-05920: tcatm SHA state caching optimization, Crypto++
+0528-05416: JSON-RPC multiple invocation bug
+0532-06306: scalability, burden to run a node, number of nodes, server farms, transaction speed, 0-conf, "I don't have time to try to convince you, sorry"
+0548-05339: JSON-RPC error
+0548-05419: JSON-RPC error
+0550-05349: initial block download optimization, asynchronous writing in database, v0.3.2.5
+0550-05378: initial block download optimization, synchronous writing trigger depth
+0555-05450: FLATDATA fixed-size array serializer, MSVC6, Boost
+0556-05443: v0.3.2.5, JSON-RPC HTTP basic authentication, initial block download optimization
+0567-05694: traffic load test, test network
+0567-05698: traffic load test, test network
+0570-05707: v0.3.3, chain work instead of block height, JSON-RPC HTTP basic authentication, initial block download optimization
+0571-05712: stealing coins with hash function brute force attack, private disclosure
+0571-05724: stealing coins with hash function brute force attack, private disclosure, thank-you to Red
+0571-05740: stealing coins with hash function brute force attack, insecure public key
+0571-05754: address collision, impossibility of birthday attack, RIPEMD-160 only for addresses, brute force attack vs analytical attack
+0571-05778: stealing coins with hash function brute force attack, ECDSA, not RSA, prime numbers
+0572-05978: tcatm SHA state caching optimization, SVN rev 113, Crypto++
+0572-06069: BlackEye's SHA-256 optimization, Crypto++ 5.6.0, SSE2, SVN rev 114
+0572-06083: BlackEye's SHA-256 optimization, SSE2
+0576-05904: bitcoind without wxWidgets
+0583-11405: Mises' regression theorem
+0587-06301: mining timestamping between MTP and 2 hours
+0589-12483: Berkeley DB
+0601-06268: -datadir with a relative path
+0601-08924: -datadir with a relative path
+0604-06273: Mac OS X build
+0611-06706: listtransactions implementation
+0612-06516: Linux distribution, older version, Ubuntu
+0612-06822: Linux build, Boost 1.37
+0615-06512: transaction resending
+0626-06451: v0.3.6, 1 RETURN bug, tcatm midstate cache optimization, BlackEye Crypto++ ASM SHA-256, OP_NOP opcodes
+0626-06469: v0.3.6, SVN update coming
+0626-06480: v0.3.6, SVN update
+0626-06490: v0.3.6, makefile.unix, 22DbRunRecoveryException
+0626-06502: v0.3.6, Linux build, GNU C Library version, Ubuntu 10.04
+0626-06542: v0.3.6, Linux build, GNU C Library version
+0626-06711: v0.3.6, Linux build
+0626-06728: v0.3.6, Linux build, Boost, Mac OSX version
+0628-06508: 1 RETURN bug, responsible disclosure
+0632-07090: serialization format, Protocol Buffers, Boost, P2P broadcast infrastructure
+0635-07385: Markus Jakobsson's coin ripping, escrow, smart contracts, "slashdotted"
+0642-06701: sending immature coins, wallet.dat
+0644-28643: Cdecker's nightly builds of bitcoind, GUI, Ubuntu
+0645-07712: escrow mechanism
+0645-08137: escrow mechanism, burning recourse
+0648-06751: tcatm's 4-way SSE2 mining optimization, SSE2
+0648-07084: tcatm's 4-way SSE2 mining optimization, AMD and 1/2 fast on Intel
+0648-08145: tcatm's 4-way SSE2 mining optimization, CRITICAL_BLOCK
+0648-08929: tcatm's 4-way SSE2 mining optimization, CPU performances
+0648-09145: tcatm's 4-way SSE2 mining optimization, MinGW compilation on Windows
+0648-09159: tcatm's 4-way SSE2 mining optimization, MinGW compilation on Windows
+0648-09228: tcatm's 4-way SSE2 mining optimization, MinGW compilation on Windows
+0648-09278: tcatm's 4-way SSE2 mining optimization, MinGW compilation on Windows
+0648-09359: tcatm's 4-way SSE2 mining optimization, MinGW compilation on Windows
+0651-06760: webpage idea for next difficulty adjustment prediction
+0652-14729: Wikipedia article, short description of Bitcoin, more general categories like Electronic Currency or Electronic Cash
+0655-07057: Linux bug, no GUI
+0660-07068: Mac OS X minimize to tray bug
+0661-07356: network segmentation
+0665-18349: wallet accounts
+0665-18508: wallet accounts
+0671-13844: porn
+0685-07331: Linux CentOS build, Berkeley DB version
+0685-07372: Linux CentOS build, number of connections
+0689-07335: Content-Length header
+0691-08922: watchdog service, network segmentation
+0691-09041: watchdog service, network segmentation, IRC bootstrapping, seed nodes
+0696-07364: v0.3.8, safety measure warning about invalid forks, IsLockdown
+0696-07381: v0.3.8, update on SourceForge
+0704-07703: bitcoin faucet draining, rate limit based on IP or reverse DNS lookup, lower amount of bitcoins
+0711-07705: send-to-IP with bitcoind not implemented
+0721-08114: minting as thermodynamically perverse, "waste", gold mining, proof-of-work advantages
+0721-08431: minting as thermodynamically perverse, electric heating is not a waste, "generation should end up where it's cheapest"
+0713-07706: transaction fees for the transaction fee's transaction
+0723-08103: consensus, CPU power
+0750-08140: escrow system
+0750-08649: escrow system
+0753-08388: v0.3.8 generation bug, Linux 64-bit build, SSE2
+0753-08417: v0.3.8.1, Linux 64-bit build
+0760-08413: year 2038 problem, unsigned int, 2106
+0765-08402: v0.3.8.1, Linux 64-bit build, Crypto++, SSE2
+0765-08422: v0.3.8.1, Linux 64-bit build, disable SSE2
+0765-08628: v0.3.8.1, Linux 64-bit build, SVN rev 128, disable SSE2 on 32-bit
+0766-08424: connection limits, SVN rev 125
+0770-08637: advanced cryptography to obfuscate transaction information, need to check for absence of double-spends, zero-knowledge-proofs, "much better, easier, more convenient implementation of Bitcoin"
+0770-08798: advanced cryptography to obfuscate transaction information, hide transaction value and inpoints/outpoints, fan-out
+0770-08836: advanced cryptography to obfuscate transaction information, transaction's past
+0770-09074: advanced cryptography to obfuscate transaction information, transaction's past, key blinding, group signatures
+0782-08803: coin loss, change output, "9000 BTC bill", automatic backup
+0784-08651: SVN rev 127 bug, fixed in rev 129
+0788-08804: denial of service attack, PoW on transactions to prevent spam, transaction fee
+0790-08814: BSD detection
+0790-08919: BSD detection, SVN rev 130
+0795-08920: SVN rev 130, bugfixes, -paytxfee switch
+0795-08960: -paytxfee switch, "it probably won't be needed"
+0806-09046: v0.3.9 release candidate, rc1 & rc2, tcatm's 4-way SSE2
+0806-09475: v0.3.9 release candidate, Jeff Garzik's extended-help idea
+0807-09134: API, returning txid, backward compatibility
+0813-09454: favored places for generation, free electric heat
+0816-11610: endianness, little-endian assumed, big-endian "on its way out"
+0820-09452: tcatm's 4-way SSE2, v0.3.9 rc2, v0.3.10
+0820-09478: tcatm's 4-way SSE2, tests, i5/AMD, 32-bit vs 64-bit
+0820-09483: tcatm's 4-way SSE2, new build
+0820-09655: tcatm's 4-way SSE2, compilation options, test
+0820-09661: tcatm's 4-way SSE2, compilation options
+0820-09676: tcatm's 4-way SSE2, test with i7
+0820-09736: tcatm's 4-way SSE2, ARM compilation
+0820-10281: tcatm's 4-way SSE2, tests on Windows and Mac
+0820-10720: tcatm's 4-way SSE2, AMD/Intel
+0820-11068: tcatm's 4-way SSE2, AMD/Intel, hyperthreading
+0820-11503: tcatm's 4-way SSE2, algorithmic simplification
+0823-09530: value overflow bug, preliminary change
+0823-09531: value overflow bug, recommendation to stop generating
+0823-09539: value overflow bug, knightmb's blockchain snapshot
+0823-09548: value overflow bug, SVN rev 132, process to follow
+0823-09573: value overflow bug, knightmb's blockchain snapshot, tcatm's 4-way SSE2, v0.3.10 patch for Windows, process to follow
+0823-09576: value overflow bug, knightmb's blockchain snapshot
+0823-09584: value overflow bug, knightmb's blockchain snapshot, tcatm's 4-way SSE2, v0.3.10 patch for Windows/Linux
+0823-09586: value overflow bug, alert system idea
+0823-09623: value overflow bug, reorganization
+0823-09624: value overflow bug, addnode parameter
+0823-09628: value overflow bug, reorganization
+0823-09642: value overflow bug, reorganization, bad chain generation slowing down
+0823-09648: value overflow bug, node version, reorganization, good chain generation at 5 blocks per hour
+0823-09734: value overflow bug, reorganization, bad chain overtaken at height 74,689, acknowledgement to community
+0823-09841: value overflow bug, reorganization, overflow transaction still broadcast by 0.3.9 nodes
+0827-09590: v0.3.10, value overflow patch, tcatm's 4-way SSE2, availability for Windows/Linux/Mac, reorganization
+0828-09608: value overflow fork, connections
+0828-09612: value overflow fork, connections, addnode parameter, static IP
+0832-09754: value overflow fork, managing old blocks
+0832-09754: value overflow fork, managing old blocks, SVN rev 139
+0834-09816: blockchain checkpoints, greatest proof-of-work as the rule to automatically know the correct chain, manual checkpoints as exceptions
+0834-09843: blockchain checkpoints, total proof-of-work as a criterion
+0837-09757: showing block height in software instead of number of blocks
+0837-09774: showing block height in software instead of number of blocks, SVN rev 137
+0841-09813: checking the blockchain on load, SVN rev 139
+0841-10082: checking the blockchain on load, block 74,000 checkpoint, proof-of-work chain checked
+0845-11403: not shares or common stock, more like commodity or collectible
+0846-10076: PoW difficulty increasing, VIA C7 performance
+0850-10067: software screenshots, v0.1 old screenshots, Windows Aero, transactions displayed
+0862-10290: mining/generation bug, clock setting
+0862-10717: mining/generation bug, clock setting, 2-hour margin, SVN rev 141, v0.3.11
+0867-10272: GTK vs wxWidgets, wxWidgets 2.9, UTF-8, UTF-16
+0868-10275: Linux Ubuntu Karmic compilation tutorial
+0870-10300: transaction rebroadcasting after block rejection
+0873-10297: post about things users should know, clock setting, Microsoft Security Essentials, wallet.dat as a DB file
+0873-10715: post about things users should know, clock setting, SVN rev 141, v0.3.11
+0873-11227: post about things users should know, wallet.dat auto backup, pre-made pool of keys
+0890-10723: thank-you to Zooko
+0898-10722: alert system development, alert key, warning message, disable money handling API methods, value overflow bug, fork
+0898-11074: alert system development, community paranoia, value overflow bug, stopping automated websites, -disablesafemode (-overridesafety) switch
+0898-11078: alert system development, SVN rev 142, v0.3.11
+0898-11150: alert system development, API methods, value overflow bug, -disablesafemode (-overridesafety) switch, temporary system, "beta software"
+0898-11151: alert system development, -disablesafemode switch, new name
+0898-11155: alert system development, "shutting down the complete network", six API methods disabled, -disablesafemode switch, temporary inconvenience
+0898-11158: alert system development, getinfo, alert messages, -testsafemode switch, SVN rev 145, undocumented switches, -4way switch
+0898-11219: alert system development, apologies to BioMike
+0920-11224: Berkeley DB, removing DB_PRIVATE
+0920-12484: Berkeley DB, removing DB_PRIVATE, SVN rev 153
+0921-11228: wallet.dat auto backup, pre-generated key pool, Boost, backupwallet JSON-RPC command
+0921-11345: wallet.dat auto backup, Boost
+0921-11350: wallet.dat auto backup, mmap(2), Boost
+0921-11399: wallet.dat auto backup, Windows API, iostreams, "I've been skimming messages and I still can't keep up"
+0921-12134: wallet.dat auto backup, backupwallet JSON-RPC command, SVN rev 147
+0928-11400: Bitcoin Watch last 7 days worth of blocks feature, "upside-down bar chart"
+0930-11342: Gentoo Linux ebuild, -datadir switch, wxWidgets 2.9, UTF-8, UTF-16
+0941-11439: v0.3.11, checking the blockchain on load, -march=amdfam10 optimization, clock warning, alert system
+0941-11505: v0.3.11, wrong version displayed, -march=amdfam10 optimization
+0955-12248: CPU generation, tcatm's 4-way SSE2, -4way switch
+0960-12063: system clock problem, error message
+0960-12132: system clock problem, error message
+0960-13833: system clock problem, program doesn't set the clock, clock synchronization between nodes
+0967-12062: CryptoPP assertion error, SVN rev 146, commenting out assert, false alarm
+0969-12130: SVN rev 147, standardized error codes, backupwallet JSON-RPC command
+0989-12494: open source, GPL license, MIT license, closed-source takeover
+0992-12135: Mac OS X daemon bug
+0994-12168: mandatory transaction fee, reducing free transactions threshold, "We should always allow at least some free transactions."
+0994-12237: mandatory transaction fee, -paytxfee switch, block size, free transactions threshold
+0994-13829: mandatory transaction fee, reducing free transactions threshold, SVN rev 157
+0999-12181: v0.3.12, command line error codes, backupwallet JSON-RPC command,
+0999-12240: v0.3.12, nonstandard transactions, two possible templates of standard transaction
+1007-12262: tcatm's 4-way SSE2 auto-detect, SVN rev 150, 128-bit vs. 64-bit, CPUID
+1007-12372: tcatm's 4-way SSE2 auto-detect, x86 assembler, SVN rev 152
+1013-12341: transaction fee bug, GetMinFee
+1013-12342: transaction fee bug, 0.00000010 BTC dust, special case to CreateTransaction
+1013-12368: transaction fee bug, SVN rev 151
+1023-13201: memory leak, node connecting to itself, -connect switch, wait function
+1023-15150: memory leak, node connecting to itself, v0.3.13, IRC bootstrapping, -addnode switch
+1032-13221: message encryption as a built-in feature, ECDSA doesn't support encryption
+1034-13206: Windows build, MinGW, tcatm's 4-way 128-bit SSE2
+1048-13219: removing send-to-IP transactions, disabling by default, limited useful cases, -allowreceivebyip switch, SVN rev 156
+1063-13211: bitcoind bug, bug tracking system
+1268-15741: niche market, hosting files, RapidShare, Mihalism Multi Host
+1269-13831: internal version number format, sub versions, v0.3.13
+1269-13849: internal version number format, version comparison
+1271-13848: unit divisibility, extra decimal places for future use
+1283-14136: distributed escrow system, multi-party signing
+1291-14736: RPC interface, MITM attack, LAN, v0.3.13 rc1
+1306-14714: broken wallet, disable spending of unconfirmed coins, credit amount in square brackets, SVN rev 158, v0.3.13 rc1, theymos' patch
+1306-14720: broken wallet, disable spending of unconfirmed coins, v0.3.13 rc1
+1306-15672: broken wallet, disable spending of unconfirmed coins, coin selection, SVN rev 161, recursive determination, v0.3.13.2, theymos' patch
+1314-14732: transaction fees, -paytxfee switch, fee requirement as the block fills up
+1314-14734: transaction fees, dynamic rate per KB
+1322-14722: v0.3.13 rc1, Windows,
+1322-14787: v0.3.13 rc1, Windows, russian translation fix
+1327-14788: v0.3.13, disable spending of unconfirmed coins, change of internal version number format, -allowreceivebyip switch, removing DB_PRIVATE, tcatm's 4-way SSE2 auto-detect on Linux, json-rpc connections from another machine, clean shutdown on SIGTERM on Linux, v0.3.13.2
+1327-15102: v0.3.13, tcatm's 4-way SSE2 auto-detect on Linux, 64-bit AMD
+1327-15110: v0.3.13, v0.3.13.1 special build, clear up 0/unconfirmed problem, amnesty the dust spam transactions, tcatm's 4-way SSE2 auto-detect on Linux for 64-bit AMD
+1327-15112: v0.3.13, v0.3.13.1 source code, tcatm's 983 Mhash/s mining farm
+1327-15116: v0.3.13, v0.3.13.1 source code diff
+1327-15136: v0.3.13, broken wallet, path of unconfirmed transactions, no-fee block, "You should never delete a wallet", tcatm running v0.3.13.1
+1327-15147: v0.3.13, tcatm's 4-way SSE2 auto-detect on Linux for 64-bit AMD, v0.3.13.1 special build
+1327-15167: v0.3.13, v0.3.13.1 special build, dust transaction rebroadcasting
+1332-15142: GPU generation, extra nonce, hash speed slowing down, risk of collision
+1334-23097: m0mchil OpenCL miner, SVN rev 186, free transaction abuse, transaction including algorithm, O(n) vs O(n^2)/2
+1334-24101: m0mchil OpenCL miner, getwork added to official client
+1347-15139: block size limit increase, upgrade incompatibility
+1347-15366: block size limit increase, how it can be phased in
+1375-15682: Tor connection problem, IRC bootstrapping
+1414-16316: v0.3.13.3, SVN rev 163, pre-generated key pool for backup, wallet.dat, -keypool= switch
+1528-17924: v0.3.14, pre-generated key pool for backup, -testnet switch, SSL for API, validateaddress command, Russian translation of the client
+1530-18241: block count stuck at 1,698, corrupted entry in database, safety lockdown, block 74,000 checkpoint
+1530-18245: block count stuck at 1,698, antivirus software, knightmb's blockchain snapshot
+1540-18246: Windows 64-bit crash, mingwm10.dll, MinGW versions, multithreading
+1540-18511: Windows 64-bit crash, MinGW versions
+1545-18250: message sending, ECDSA doesn't encrypt messages, permanently recorded plaintext messages are a bad idea, message system should be separate
+1668-21896: flood test on testnet, v0.3.15, coin age transaction priority, coin selection
+1668-21959: flood test on testnet, transaction priority, transaction fee
+1735-26999: opposition to WikiLeaks using bitcoin, gradual growth, small beta community
+1780-21897: v0.3.15, -paytxfee switch, avoid spending unconfirmed coins, coin age transaction priority
+1786-22119: OP_BLOCKNUMBER, reverse timelock, fairness in the event of a block chain reorg, nTimeLock
+1790-28696: BitDNS, merge mining
+1790-28715: BitDNS, merge mining
+1790-28917: BitDNS, separate chains, atomic swap
+1790-28959: BitDNS, exchange rate between domains and bitcoins
+1790-28963: BitDNS, fees, Moore's Law
+1790-29159: BitDNS, merge mining
+1850-22952: transaction flooding, coin age transaction priority, SVN rev 185, minimal priority requirement for free transactions
+1901-23876: getwork, m0mchil's external bitcoin miner idea, GPU programming, server farms using getwork clients
+1901-23891: getwork, cleaning up the interface, ScanHash_ functions
+1901-24095: getwork, byte endianness, ScanHash_ functions
+1901-24708: getwork boolean result
+1925-24719: Jeff Garzik's CPU miner using getwork, tcatm's 4-way SSE2, C compiling
+1931-24438: blockchain copy with the release, downloading time vs verifying/indexing time, blk0001.dat, blkindex.dat,
+1931-24662: blockchain copy with the release, IBD bottleneck, ACID, caching
+1931-25138: blockchain copy with the release, caching, normal initial download time, 74,000 checkpoint, header downloading time, compressibility of keys and signatures
+1931-25449: blockchain copy with the release, block index vs transaction index, opening databases, flushing
+1931-26016: blockchain copy with the release, Jeff Garzik's IBD optimization, flushing
+1946-24460: v0.3.17, getwork, transaction fee setting, free transaction limit, sendtoaddress, getaccountaddress
+1946-24673: v0.3.17, Mac OS X build, Laszlo
+1976-25119: PPS pooled mining
+1986-25154: using one wallet on multiple computers, getwork miners, Jeff Garzik's CPU miner, tcatm's 4-way SSE2
+2007-25799: incompatible wallet format, bitcoin-git
+2151-28228: list transactions newer than a given txid, listtransactions, "Transactions are dynamic", issues, double spend
+2151-28292: list transactions newer than a given txid, issues
+2151-28313: list transactions newer than a given txid, issues, double spend, getreceivedbyaddress
+2151-28640: list transactions for all accounts
+2162-28302: v0.3.18, wallet.dat compatibility fix, IsStandard() check, Jeff Garzik's IBD optimization, Accounts-based JSON-RPC commands
+2162-28533: v0.3.18, IsStandard() check, new transaction templates, timestamping, BitDNS, Hal Finney's idea of user-friendly timestamping by sending dust to hash address
+2162-28549: v0.3.18, IsStandard() whitelisting, writing arbitrary data in transaction, 3rd transaction type
+2181-28729: IsStandard() check, locktime, transaction replacement
+2188-29259: powerful machinery, thank-you to Hal Finney
+2202-28947: v0.3.18, Accounts-based JSON-RPC commands, example
+2208-29165: buffer overflow attacks, send-to-IP transactions disabled by default, Standard Template Library
+2216-29280: PC World article, WikiLeaks, "hornet's nest"
+2228-29479: v0.3.19, DoS controls, removing safe mode in alert system

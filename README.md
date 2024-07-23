@@ -2,7 +2,7 @@
 
 Complete archive of the writings of productions of Satoshi Nakamoto, Bitcoin creator.
 
-## Compilation
+## Compilation (./doc/)
 
 Compilations of this content have been made over the years:
 
@@ -11,7 +11,9 @@ Compilations of this content have been made over the years:
 - [Kicking the Hornet's Nest](https://ipfs.io/ipfs/QmUhY2xKDLQSnxoePE1R94NdDTjuNuYgKv2cXUdW9gxGQL) (2019)
 - [Deryk Makgill's archive](https://www.bitcoin.com/satoshi-archive/) (2021)
 
-A new compilation could be made with the source files listed below.
+This compilation (WIP) is made from the source files listed below. Here are Satoshi's writings currently available:
+
+- [Bitcoin forum posts](doc/bitcoin-forum/) (839)
 
 ## Source material (./src/)
 
