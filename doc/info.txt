@@ -540,6 +540,12 @@ BITCOIN FORUM
 2216-29280: PC World article, WikiLeaks, "hornet's nest"
 2228-29479: v0.3.19, DoS controls, removing safe mode in alert system
 
+WEI DAI
+
+1, Satoshi Nakamoto to Wei Dai: citation of the b-money page, Adam Back, white paper pre-release draft, ecash.pdf, Electronic Cash Without a Trusted Third Party
+2, Wei Dai to Satoshi Nakamoto: citation of the b-money page, b-money announcement and discussions in 1998
+3, Satoshi Nakamoto to Wei Dai: full implementation of the paper, Bitcoin v0.1, discussion on the Cryptography mailing list, Hal Finney's description
+
 HAL FINNEY
 
 1, Hal Finney to Satoshi Nakamoto: Bitcoin source files attached, size of the network, on-chain vs off-chain adoption
