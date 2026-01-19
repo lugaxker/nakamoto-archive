@@ -14,6 +14,7 @@ Compilations of this content have been made over the years:
 This compilation (WIP) is made from the source files listed below. Here are Satoshi's writings currently available:
 
 - [Bitcoin forum posts](doc/bitcoin-forum/) (839)
+- [Emails with Hal Finney](doc/hal-finney/) (18)
 
 ## Source material (./src/)
 
