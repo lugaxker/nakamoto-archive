@@ -540,6 +540,14 @@ BITCOIN FORUM
 2216-29280: PC World article, WikiLeaks, "hornet's nest"
 2228-29479: v0.3.19, DoS controls, removing safe mode in alert system
 
+ADAM BACK
+
+1, Satoshi Nakamoto to Adam Back: citation of the Hashcash paper, white paper pre-release draft, ecash.pdf, Electronic Cash Without a Trusted Third Party
+2, Adam Back to Satoshi Nakamoto: b-money page, Wei Dai
+3, Satoshi Nakamoto to Adam Back: b-money page, distributed timestamp server based on proof-of-work
+4, Adam Back to Satoshi Nakamoto: white paper pre-release draft, Micromint by Rivest et al.
+5, Satoshi Nakamoto to Adam Back: full implementation of the paper, Bitcoin v0.1, discussion on the Cryptography mailing list, Hal Finney's description
+
 WEI DAI
 
 1, Satoshi Nakamoto to Wei Dai: citation of the b-money page, Adam Back, white paper pre-release draft, ecash.pdf, Electronic Cash Without a Trusted Third Party
