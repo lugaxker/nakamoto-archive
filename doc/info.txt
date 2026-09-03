@@ -1,3 +1,21 @@
+BITCOIN LIST
+
+21033408: welcome
+21303153: Bitcoin v0.1.2 available, connection bugs fixed
+21312004: Bitcoin v0.1, alpha release notes, coin generation, coin sending, 21M coins, transaction fees
+21313152: Bitcoin v0.1.3, node communications maturation countdown
+21356305: usecases of Bitcoin, narrow niche, reward points, donation tokens, game currency, micropayments on adult sites, pay-to-send e-mail, "get some in case it catches on", self fulfilling prophecy
+21424626: Nicholas Bohm's problems with the software
+21500063: v0.1.5, minimum fee for transactions less than 1 cent, credits to Nicholas Bohm and Dustin Trammell
+21740046: v0.1.5, secure timestamping
+23824064: Windows crash
+24205662: v0.2, minimize to tray, autostart on boot, Linux version, multi-processor support for coin generation, credits to Martti Malmi and NewLibertyStandard, new forum
+25686730: v0.3 official release announcement, cryptocurrency, no trusted central server, arbitrary inflation, JSON-RPC, daemon, tabs, faster hashing, hashmeter, Mac OS X version, client translations
+25843947: v0.3.6, 1 RETURN bug
+25954806: value overflow bug alert
+26722835: Bitcoin v0.3.18, wallet.dat compatibility, IsStandard(), IBD optimization, JSON-RPC commands
+26744510: Bitcoin v0.3.19, DoS protection
+
 BITCOIN FORUM
 
 0005-00028: welcome
